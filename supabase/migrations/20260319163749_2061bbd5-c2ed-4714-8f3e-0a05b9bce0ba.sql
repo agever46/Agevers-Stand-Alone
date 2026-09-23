@@ -1,0 +1,1 @@
+ALTER TABLE public.fraud_scores ADD COLUMN IF NOT EXISTS ipqs_score integer DEFAULT NULL;

@@ -1,0 +1,2 @@
+ALTER TABLE public.news_articles ADD COLUMN IF NOT EXISTS scheduled_publish_at timestamp with time zone;
+CREATE INDEX IF NOT EXISTS idx_news_articles_scheduled ON public.news_articles(scheduled_publish_at) WHERE is_published = false AND scheduled_publish_at IS NOT NULL;

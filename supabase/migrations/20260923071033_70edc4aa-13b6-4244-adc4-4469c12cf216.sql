@@ -1,0 +1,1 @@
+ALTER TABLE public.giveaways ADD COLUMN IF NOT EXISTS seeded_winners jsonb NOT NULL DEFAULT '[]'::jsonb;

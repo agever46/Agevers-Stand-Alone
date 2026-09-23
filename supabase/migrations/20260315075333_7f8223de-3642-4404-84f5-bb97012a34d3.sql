@@ -1,0 +1,1 @@
+ALTER TABLE public.allowed_products ADD COLUMN IF NOT EXISTS description_paraphrased boolean NOT NULL DEFAULT false;

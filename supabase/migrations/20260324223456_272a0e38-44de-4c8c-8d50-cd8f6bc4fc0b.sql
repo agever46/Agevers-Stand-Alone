@@ -1,0 +1,4 @@
+UPDATE allowed_products SET region = 'Bhutan', title = REPLACE(title, ' - United States', ' - Bhutan') WHERE title LIKE '%USD Bt - PC - United States%';
+UPDATE allowed_products SET region = 'Sri Lanka', title = REPLACE(title, ' - United States', ' - Sri Lanka') WHERE title LIKE '%USD Lk - PC - United States%';
+UPDATE allowed_products SET region = 'Nepal', title = REPLACE(title, ' - United States', ' - Nepal') WHERE title LIKE '%USD Np - PC - United States%';
+UPDATE allowed_products SET region = 'Bangladesh', title = REPLACE(title, ' - United States', ' - Bangladesh') WHERE title LIKE '%USD Bd - PC - United States%';

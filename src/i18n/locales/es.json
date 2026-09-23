@@ -1,0 +1,410 @@
+{
+  "nav": {
+    "searchPlaceholder": "Buscar juegos, recargas y más",
+    "noResults": "No se encontraron resultados",
+    "showAll": "Ver todos los resultados",
+    "cart": "Carrito",
+    "cartEmpty": "Tu carrito está vacío",
+    "total": "Total",
+    "checkout": "Pagar",
+    "addedToCart": "Añadido al carrito",
+    "myAccount": "Mi cuenta",
+    "wishlist": "Lista de deseos",
+    "orders": "Pedidos",
+    "myTickets": "Mis tickets",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión",
+    "signIn": "Iniciar sesión o Registrarse",
+    "verifyEmail": "Verificar correo",
+    "playEarn": "Juega y gana"
+  },
+  "footer": {
+    "support": "Soporte",
+    "legal": "Legal",
+    "business": "Empresas",
+    "secureShopping": "Compra segura",
+    "helpCenter": "Centro de ayuda",
+    "helpGuides": "Guías",
+    "news": "Noticias",
+    "contact": "Contáctanos",
+    "faqs": "Preguntas frecuentes",
+    "about": "Sobre nosotros",
+    "compare": "Comparar tiendas",
+    "privacy": "Política de privacidad",
+    "terms": "Términos del servicio",
+    "refund": "Política de reembolso",
+    "wholesale": "Consultas mayoristas",
+    "affiliate": "Programa de afiliados",
+    "partnerships": "Colaboraciones comerciales",
+    "ssl": "Pago cifrado SSL",
+    "paypal": "Protección del comprador de PayPal",
+    "consumer": "Derechos del consumidor protegidos",
+    "fraud": "Prevención avanzada de fraude",
+    "blazeCoins": "Política de Blaze Coins",
+    "rights": "Todos los derechos reservados."
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "home": {
+    "howItWorks": {
+      "title": "CÓMO FUNCIONA",
+      "subtitle": "Consigue tus juegos favoritos en 3 sencillos pasos",
+      "step": "PASO",
+      "s1Title": "ENCUENTRA TU JUEGO",
+      "s1Desc": "Explora nuestro catálogo de miles de juegos y productos digitales al mejor precio.",
+      "s2Title": "PAGO SEGURO",
+      "s2Desc": "Paga de forma segura con PayPal o tu método preferido. Rápido y cifrado.",
+      "s3Title": "RECIBE TU CLAVE",
+      "s3Desc": "Recibe tu clave de activación al instante por correo y en tu cuenta."
+    },
+    "gta": {
+      "preOrder": "RESERVAR",
+      "offer": "€15 DE DESCUENTO · TIEMPO LIMITADO",
+      "tagline": "El juego más esperado del año — ahora con <1>€15 de descuento</1> especial en cada edición. Reserva tu copia hoy.",
+      "cta": "VER OPCIONES →"
+    },
+    "community": {
+      "title": "ÚNETE A LA COMUNIDAD",
+      "guestText": "Crea una cuenta y obtén <1>5% DE DESCUENTO</1> en tu primer pedido, ofertas exclusivas y acceso anticipado a lanzamientos.",
+      "createAccount": "CREAR CUENTA",
+      "subscribed": "✅ ¡Estás suscrito a nuestro boletín! Mantente atento a ofertas exclusivas.",
+      "userText": "Suscríbete a nuestro boletín y obtén <1>5% DE DESCUENTO</1> en tu primer pedido, ofertas exclusivas y una <3>entrada bonus</3> en nuestro sorteo gratuito 🎁",
+      "emailPlaceholder": "Tu correo electrónico",
+      "subscribe": "SUSCRIBIRSE",
+      "subscribing": "SUSCRIBIENDO..."
+    }
+  },
+  "account": {
+    "sidebar": {
+      "overview": "Resumen",
+      "orders": "Pedidos",
+      "wishlist": "Lista de deseos",
+      "achievements": "Logros",
+      "mySupport": "Mis tickets de soporte",
+      "settings": "Ajustes",
+      "myAccount": "Mi cuenta",
+      "backToStore": "Volver a la tienda",
+      "adminPanel": "Panel de administración",
+      "sellerDashboard": "Panel de vendedor",
+      "signOut": "Cerrar sesión"
+    },
+    "common": {
+      "cancel": "Cancelar",
+      "sending": "Enviando...",
+      "saving": "Guardando..."
+    },
+    "overview": {
+      "verifyEmail": {
+        "title": "Verifica tu correo",
+        "desc": "Verifica tu dirección de correo para desbloquear compras y acceso completo a tu cuenta.",
+        "sending": "Enviando...",
+        "verifyNow": "Verificar ahora"
+      },
+      "newAccountLimit": {
+        "title": "Cuenta nueva — Límite de compra de €20",
+        "desc": "Por tu seguridad, las cuentas nuevas pueden comprar hasta €20 durante las primeras 24 horas. El acceso completo se desbloquea en {{time}}. ¿Necesitas comprar más antes?",
+        "contactUs": "Contáctanos",
+        "contactSuffix": "para una revisión manual."
+      },
+      "editProfile": "Editar perfil",
+      "blazeCoins": {
+        "title": "BLAZE COINS",
+        "earn": "Gana con juegos y compras",
+        "balance": "Saldo",
+        "totalEarned": "Total ganado"
+      },
+      "stats": {
+        "orders": "Pedidos",
+        "favorites": "Favoritos",
+        "openTickets": "Tickets abiertos"
+      },
+      "toast": {
+        "verificationSent": "¡Correo de verificación enviado! Revisa tu bandeja de entrada.",
+        "rateLimited": "Espera 2 minutos antes de solicitar otro correo.",
+        "verificationFailed": "Error al enviar el correo de verificación. Inténtalo más tarde."
+      }
+    },
+    "orders": {
+      "title": "PEDIDOS",
+      "subtitle": "Tu historial de compras",
+      "empty": {
+        "title": "Aún no hay pedidos",
+        "subtitle": "Tus códigos de juegos comprados aparecerán aquí"
+      },
+      "underReview": {
+        "title": "En revisión de seguridad",
+        "desc": "Tu pago fue recibido. Nuestro equipo está verificando este pedido antes de la entrega — la mayoría de las revisiones se completan en 1 hora."
+      },
+      "status": {
+        "underReview": "en revisión"
+      },
+      "receipt": "Recibo",
+      "receiptTitle": "Descargar recibo (inglés)",
+      "toast": {
+        "receiptReady": "Recibo listo"
+      }
+    },
+    "tickets": {
+      "title": "MIS TICKETS DE SOPORTE",
+      "subtitle": "Tus tickets de soporte y su estado",
+      "newTicket": "Nuevo ticket",
+      "form": {
+        "title": "Nuevo ticket de soporte",
+        "order": "Pedido *",
+        "selectOrder": "Selecciona un pedido...",
+        "noOrders": "Aún no tienes pedidos.",
+        "issueType": "Tipo de problema *",
+        "selectIssue": "Selecciona el problema...",
+        "describe": "Describe el problema *",
+        "describePlaceholder": "Por favor, describe el problema en detalle...",
+        "screenshot": "Captura de pantalla * (prueba del problema)",
+        "uploadScreenshot": "Subir captura de pantalla",
+        "changeScreenshot": "Cambiar captura de pantalla",
+        "submit": "Enviar ticket",
+        "submitting": "Enviando...",
+        "cancel": "Cancelar"
+      },
+      "status": {
+        "open": "Abierto",
+        "inProgress": "En curso",
+        "underReview": "En revisión",
+        "resolved": "Resuelto",
+        "closed": "Cerrado"
+      },
+      "labels": {
+        "yourMessage": "Tu mensaje",
+        "yourScreenshot": "Tu captura de pantalla",
+        "sellerResponse": "Respuesta del vendedor",
+        "adminDecision": "Decisión del administrador",
+        "resolution": "Resolución:"
+      },
+      "resolution": {
+        "refund": "Reembolso emitido por el vendedor",
+        "new_code": "Nuevo código enviado por el vendedor",
+        "challenged": "Escalado a revisión de administrador",
+        "admin_resolved": "Resuelto por el administrador",
+        "admin_refund": "Reembolso aprobado por el administrador"
+      },
+      "empty": {
+        "title": "Sin tickets de soporte",
+        "subtitle": "Los tickets que abras aparecerán aquí"
+      },
+      "toast": {
+        "fillFields": "Por favor, completa todos los campos requeridos",
+        "uploadScreenshot": "Por favor, sube una captura de pantalla del problema",
+        "sellerNotFound": "No se encontró al vendedor de este pedido",
+        "uploadFailed": "Error al subir la captura de pantalla",
+        "submitFailed": "Error al enviar el ticket",
+        "submitted": "¡Ticket de soporte enviado!"
+      }
+    },
+    "settings": {
+      "title": "AJUSTES",
+      "subtitle": "Gestiona la información de tu perfil",
+      "avatar": "Avatar",
+      "email": "Correo electrónico",
+      "username": "Nombre de usuario",
+      "displayName": "Nombre visible",
+      "phone": "Teléfono",
+      "phoneHint": "Para cambiar tu número de teléfono, por favor",
+      "phoneHintLink": "abre un ticket de soporte",
+      "phoneHintSuffix": ".",
+      "address": "Dirección",
+      "uploadPhoto": "Subir foto",
+      "pickAvatar": "😊 Elegir avatar",
+      "chooseAvatar": "Elige tu avatar:",
+      "verified": "Verificado",
+      "verifyEmail": "Verificar correo",
+      "editProfile": "Editar perfil",
+      "saveNow": "Guardar ahora",
+      "toast": {
+        "avatarUpdated": "¡Avatar actualizado!",
+        "saveError": "Error al guardar el perfil",
+        "saved": "¡Perfil actualizado!",
+        "uploadFailed": "Error al subir: {{message}}",
+        "verificationSent": "¡Correo de verificación enviado! Revisa tu bandeja de entrada.",
+        "rateLimited": "Espera 2 minutos antes de solicitar otro correo.",
+        "verificationFailed": "Error al enviar el correo de verificación. Inténtalo más tarde."
+      },
+      "dangerZone": "Zona de peligro",
+      "deleteAccount": "Eliminar cuenta",
+      "deleteAccountDesc": "Elimina permanentemente tu cuenta y todos los datos asociados. Esta acción no se puede deshacer.",
+      "deleteConfirmTitle": "¿Eliminar tu cuenta?",
+      "deleteConfirmDesc": "Esto eliminará permanentemente tu cuenta, el acceso a tu historial de pedidos, lista de deseos y Blaze Coins. Esta acción es irreversible.",
+      "deleteConfirmButton": "Sí, eliminar mi cuenta",
+      "deleting": "Eliminando...",
+      "deleteSuccess": "Tu cuenta ha sido eliminada.",
+      "deleteError": "No se pudo eliminar la cuenta. Contacta con soporte."
+    },
+    "achievements": {
+      "title": "LOGROS",
+      "subtitle": "Gana recompensas comprando e interactuando con la tienda",
+      "unlocked": "Desbloqueado",
+      "unlockedSection": "Desbloqueados ({{count}})",
+      "lockedSection": "Bloqueados ({{count}})",
+      "next": {
+        "label": "Próximo logro"
+      },
+      "progress": {
+        "completed": "Completado",
+        "pending": "Pendiente",
+        "orders": "{{current}} / {{total}} pedidos",
+        "spent": "€{{current}} / €{{total}}",
+        "games": "{{current}} / {{total}} juegos",
+        "coins": "{{current}} / {{total}} monedas",
+        "moreOrders": "{{count}} pedidos más",
+        "moreSpend": "€{{amount}} más para gastar",
+        "almostThere": "¡Casi!"
+      },
+      "reward": {
+        "coins": "+{{value}} Monedas",
+        "coupon": "Cupón {{value}}%",
+        "blazeCoins": "+{{value}} Blaze Coins",
+        "offCoupon": "Cupón {{value}}% de descuento"
+      }
+    },
+    "referral": {
+      "title": "RECOMIENDA A UN AMIGO",
+      "subtitle": "Comparte tu enlace, gana 50 Blaze Coins por referido",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "friendsReferred": "Amigos referidos",
+      "coinsEarned": "Monedas ganadas",
+      "toast": {
+        "copied": "¡Enlace de referido copiado!",
+        "copyFailed": "Error al copiar"
+      }
+    }
+  },
+  "checkout": {
+    "title": "PAGO",
+    "back": "VOLVER",
+    "step1": "Carrito",
+    "step2": "Pago",
+    "emptyCart": "Tu carrito está vacío",
+    "browseProducts": "Explorar productos",
+    "billing": {
+      "title": "Dirección de facturación",
+      "noAddress": "Sin dirección guardada"
+    },
+    "ship": {
+      "addrTitle": "Dirección de envío",
+      "title": "Envío",
+      "addWarn": "⚠️ Añade una dirección de envío para continuar",
+      "fullName": "Nombre completo *",
+      "line1": "Dirección línea 1 *",
+      "line2": "Dirección línea 2",
+      "line1Ph": "Calle Principal 123",
+      "line2Ph": "Apto., piso, etc.",
+      "namePh": "Juan Pérez",
+      "city": "Ciudad *",
+      "state": "Provincia",
+      "zip": "Código postal *",
+      "country": "País *",
+      "phone": "Teléfono *",
+      "phonePh": "+34 612 345 678",
+      "save": "Guardar dirección",
+      "cancel": "Cancelar",
+      "loading": "Cargando opciones de envío...",
+      "none": "No hay opciones de envío disponibles",
+      "est": "Est. {{time}}",
+      "tracking": "Seguimiento disponible",
+      "free": "Gratis",
+      "standard": "Estándar"
+    },
+    "items": {
+      "title": "Tus artículos",
+      "max": "(máx {{n}})"
+    },
+    "pay": {
+      "title": "Método de pago",
+      "suspendedTitle": "Cuenta suspendida",
+      "suspendedDesc": "Tu cuenta está suspendida porque no se verificó el correo en las 72 h posteriores al registro. Verifica tu correo o contacta con soporte para reactivarla.",
+      "verifyEmail": "Verificar correo",
+      "contactSupport": "Contactar soporte",
+      "newAccountTitle": "Límite cuenta nueva (€20 / 24 h)",
+      "flaggedTitle": "Conexión marcada",
+      "flaggedDefault": "Tu conexión ha sido marcada por motivos de seguridad. Desactiva la VPN o contacta con soporte.",
+      "appealHint": "¿Crees que es un error? Revisaremos tu pedido manualmente con gusto — la mayoría de casos legítimos se aprueban en minutos durante el horario laboral.",
+      "liveChat": "Chat en vivo — En línea ahora",
+      "emailUs": "Envíanos un correo",
+      "contactPage": "Página de contacto",
+      "supportOnline": "Nuestro equipo de soporte está en línea ahora.",
+      "supportOffline": "El chat está fuera de línea — responderemos por correo tan pronto volvamos.",
+      "loading": "Cargando opciones de pago…",
+      "paypal": "PayPal",
+      "crypto": "Cripto",
+      "agreeToTermsLabel": "Acepto los <1>Términos del servicio</1>, la <3>Política de privacidad</3> y la <5>Política de reembolso</5>",
+      "acceptTerms": "⚠️ Debes aceptar los términos antes de completar el pago.",
+      "processing": "Procesando pago…",
+      "securityCheck": "Ejecutando comprobación de seguridad…",
+      "cryptoTitle": "Elige moneda",
+      "payWith": "Pagar con {{name}}",
+      "powered": "Con tecnología de NOWPayments · Tu código se entrega automáticamente cuando la red confirma el pago.",
+      "identityNote": "🔒 La verificación de identidad (SMS + correo) se pedirá en la página de confirmación antes de revelar tu código.",
+      "cryptoModal": "Completa tu pago con cripto",
+      "cryptoOpenNew": "¿Problemas? <1>ábrelo en una nueva pestaña</1>"
+    },
+    "bonus": "🎁 <1>Bonificación:</1> al completar esta compra participas automáticamente en nuestro <3>sorteo gratuito</3> activo (o sumas una participación extra si ya estás dentro).",
+    "trust": {
+      "secure": "Pago seguro",
+      "secureDesc": "Cifrado SSL 256-bit",
+      "instant": "Entrega instantánea",
+      "instantDesc": "Códigos en minutos",
+      "verified": "Vendedor verificado",
+      "verifiedDesc": "Minorista oficial",
+      "support": "Soporte 24/7",
+      "supportDesc": "Siempre para ayudarte"
+    },
+    "summary": {
+      "title": "Resumen",
+      "coinsAvail": "{{n}} disp.",
+      "coinsDiscount": "Descuento en monedas",
+      "coinsMinus": "-{{amount}} de descuento",
+      "coupon": "Descuento cupón",
+      "quantity": "Descuento por cantidad",
+      "shipping": "Envío",
+      "discountCode": "Código de descuento",
+      "discountPh": "Introduce un código",
+      "apply": "Aplicar",
+      "digitalFee": "Comisión digital",
+      "digitalFeeTip": "Esta comisión nos ayuda a mantener la plataforma y brindar una experiencia segura y fiable.",
+      "cryptoFee": "Comisión cripto",
+      "cryptoFeeTip": "Comisión de red y procesamiento al pagar con criptomonedas.",
+      "total": "Total",
+      "next": "Siguiente →",
+      "backToCart": "← Volver al carrito"
+    },
+    "toast": {
+      "couponApplied": "¡Cupón aplicado!",
+      "couponAppliedDesc": "Código \"{{code}}\" aplicado correctamente.",
+      "invalidCoupon": "Código de descuento no válido",
+      "cannotContinue": "No se puede continuar",
+      "reasonEmpty": "Tu carrito está vacío.",
+      "reasonSuspended": "Tu cuenta está suspendida.",
+      "reasonFlagged": "Tu conexión ha sido marcada.",
+      "reasonWait": "Espera — ejecutando comprobación de seguridad…",
+      "reasonTerms": "Acepta los Términos y la Política de reembolso.",
+      "reasonProcessing": "Ya se está procesando — espera.",
+      "checkoutError": "Error en el pago",
+      "sessionMissing": "No se pudo iniciar tu sesión de pago. Inicia sesión e inténtalo de nuevo.",
+      "paymentError": "Error de pago",
+      "paypalStartErr": "No se pudo iniciar el pago con PayPal",
+      "sessionExpired": "Tu sesión de pago caducó. Inicia sesión e inténtalo de nuevo.",
+      "captureFailed": "Falló la captura del pago",
+      "paymentSuccess": "¡Pago realizado!",
+      "orderConfirmed": "Pedido {{id}} confirmado.",
+      "paymentFailed": "Pago fallido",
+      "networkErr": "Error de red. Comprueba tu conexión e inténtalo de nuevo.",
+      "somethingWrong": "Algo salió mal",
+      "cancelled": "Pago cancelado",
+      "cancelledDesc": "Cancelaste el pago. Tu carrito sigue guardado.",
+      "paypalErrTitle": "No se pudo procesar el pago",
+      "paypalErrDesc": "Algo salió mal con PayPal. Inténtalo de nuevo.",
+      "cryptoFailed": "Falló el pago con cripto",
+      "cryptoTryAgain": "Inténtalo de nuevo.",
+      "cryptoCreateErr": "No se pudo crear la factura cripto"
+    }
+  }
+}

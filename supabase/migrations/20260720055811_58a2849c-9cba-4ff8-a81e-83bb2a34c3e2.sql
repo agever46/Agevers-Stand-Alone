@@ -1,0 +1,2 @@
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS cooling_period_email_attempts INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE public.kinguin_product_suggestions ADD COLUMN IF NOT EXISTS admin_edited BOOLEAN NOT NULL DEFAULT false;

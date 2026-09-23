@@ -1,0 +1,1 @@
+DELETE FROM kinguin_product_suggestions WHERE status = 'pending';

@@ -1,0 +1,414 @@
+{
+  "nav": {
+    "searchPlaceholder": "Search for games, top-ups and more",
+    "noResults": "No results found",
+    "showAll": "Show All Results",
+    "cart": "Cart",
+    "cartEmpty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "addedToCart": "Added to cart",
+    "myAccount": "My account",
+    "wishlist": "Wishlist",
+    "orders": "Orders",
+    "myTickets": "My Tickets",
+    "settings": "Settings",
+    "logout": "Logout",
+    "signIn": "Sign In or Sign Up",
+    "verifyEmail": "Verify Email",
+    "playEarn": "Play & Earn"
+  },
+  "footer": {
+    "support": "Support",
+    "legal": "Legal",
+    "business": "Business",
+    "secureShopping": "Secure Shopping",
+    "helpCenter": "Help Center",
+    "helpGuides": "Help & Guides",
+    "news": "News",
+    "contact": "Contact Us",
+    "faqs": "FAQs",
+    "about": "About Us",
+    "compare": "Compare Stores",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "refund": "Refund Policy",
+    "wholesale": "Wholesale Inquiries",
+    "affiliate": "Affiliate Program",
+    "partnerships": "Business Partnerships",
+    "ssl": "SSL Encrypted Checkout",
+    "paypal": "PayPal Buyer Protection",
+    "consumer": "Consumer Rights Protected",
+    "fraud": "Advanced Fraud Prevention",
+    "blazeCoins": "Blaze Coins Policy",
+    "rights": "All rights reserved."
+  },
+  "language": {
+    "label": "Language"
+  },
+  "home": {
+    "howItWorks": {
+      "title": "HOW IT WORKS",
+      "subtitle": "Get your favorite games in 3 simple steps",
+      "step": "STEP",
+      "s1Title": "FIND YOUR GAME",
+      "s1Desc": "Browse our catalog of thousands of games and digital products at the best prices.",
+      "s2Title": "SECURE CHECKOUT",
+      "s2Desc": "Pay safely with PayPal or your preferred payment method. Fast and encrypted.",
+      "s3Title": "GET YOUR KEY",
+      "s3Desc": "Receive your activation key instantly via email and in your account dashboard."
+    },
+    "gta": {
+      "preOrder": "PRE ORDER",
+      "offer": "€15 OFF · LIMITED TIME",
+      "tagline": "The most anticipated game of the year — now with a special <1>€15 OFF</1> on every edition. Reserve your copy today.",
+      "cta": "EXPLORE OPTIONS →"
+    },
+    "community": {
+      "title": "JOIN THE COMMUNITY",
+      "guestText": "Create an account and get <1>5% OFF</1> your first order, plus exclusive deals and early access to new releases.",
+      "createAccount": "CREATE ACCOUNT",
+      "subscribed": "✅ You're subscribed to our newsletter! Stay tuned for exclusive deals and updates.",
+      "userText": "Subscribe to our newsletter and get <1>5% OFF</1> your first order, exclusive deals, and a <3>+1 bonus entry</3> in our free game key giveaway 🎁",
+      "emailPlaceholder": "Your email address",
+      "subscribe": "SUBSCRIBE",
+      "subscribing": "SUBSCRIBING..."
+    }
+  },
+  "checkout": {
+    "title": "CHECKOUT",
+    "back": "BACK",
+    "step1": "Shopping cart",
+    "step2": "Payment",
+    "emptyCart": "Your cart is empty",
+    "browseProducts": "Browse Products",
+    "billing": {
+      "title": "Billing address",
+      "noAddress": "No address saved"
+    },
+    "ship": {
+      "addrTitle": "Shipping Address",
+      "title": "Shipping",
+      "addWarn": "⚠️ Please add a shipping address to proceed",
+      "fullName": "Full Name *",
+      "line1": "Address Line 1 *",
+      "line2": "Address Line 2",
+      "line1Ph": "123 Main Street",
+      "line2Ph": "Apt, Suite, etc.",
+      "namePh": "John Doe",
+      "city": "City *",
+      "state": "State / Province",
+      "zip": "ZIP / Postal Code *",
+      "country": "Country *",
+      "phone": "Phone *",
+      "phonePh": "+1 234 567 8900",
+      "save": "Save Address",
+      "cancel": "Cancel",
+      "loading": "Loading shipping options...",
+      "none": "No shipping options available",
+      "est": "Est. {{time}}",
+      "tracking": "Tracking available",
+      "free": "Free",
+      "standard": "Standard"
+    },
+    "items": {
+      "title": "Your items",
+      "max": "(max {{n}})"
+    },
+    "pay": {
+      "title": "Payment method",
+      "suspendedTitle": "Account Suspended",
+      "suspendedDesc": "Your account is suspended because your email was not verified within 72 hours of signup. Please verify your email or contact support to reactivate your account.",
+      "verifyEmail": "Verify Email",
+      "contactSupport": "Contact Support",
+      "newAccountTitle": "New Account Limit (€20 / 24h)",
+      "flaggedTitle": "Connection Flagged",
+      "flaggedDefault": "Your connection has been flagged for security reasons. Please disable VPN or contact support.",
+      "appealHint": "Think this is a mistake? We'll happily review your order manually — most legitimate cases are approved within minutes during business hours.",
+      "liveChat": "Live Chat — Online Now",
+      "emailUs": "Email Us",
+      "contactPage": "Contact Page",
+      "supportOnline": "Our support team is online right now.",
+      "supportOffline": "Live chat is offline — we'll reply by email as soon as we're back online.",
+      "loading": "Loading payment options…",
+      "paypal": "PayPal",
+      "crypto": "Crypto Wallet",
+      "agreeToTermsLabel": "I agree to the <1>Terms of Service</1>, <3>Privacy Policy</3> and <5>Refund Policy</5>",
+      "acceptTerms": "⚠️ You must accept the Terms above before payment can be completed.",
+      "processing": "Processing payment…",
+      "securityCheck": "Running security check…",
+      "cryptoTitle": "Choose currency",
+      "payWith": "Pay with {{name}}",
+      "powered": "Powered by NOWPayments · Your code is delivered automatically when the network confirms payment.",
+      "secureTitle": "Secure Checkout",
+      "secureSubtitle": "Keys revealed immediately after payment",
+      "guarantee": "Guaranteed Genuine Digital Codes • Instant Activation",
+      "identityNote": "🔒 Identity verification (SMS + email) will be requested on the order confirmation page before your code is revealed.",
+      "cryptoModal": "Complete your crypto payment",
+      "cryptoOpenNew": "Trouble viewing? <1>open in a new tab</1>"
+    },
+    "bonus": "🎁 <1>Bonus:</1> completing this purchase automatically enters you into our active <3>free giveaway</3> (or adds a bonus entry if you've already joined).",
+    "trust": {
+      "secure": "Secure Payment",
+      "secureDesc": "256-bit SSL encryption",
+      "instant": "Instant Delivery",
+      "instantDesc": "Codes in minutes",
+      "verified": "Verified Seller",
+      "verifiedDesc": "Official retailer",
+      "support": "24/7 Support",
+      "supportDesc": "Always here to help"
+    },
+    "summary": {
+      "title": "Summary",
+      "coinsAvail": "{{n}} avail.",
+      "coinsRedeemPrompt": "You have {{amount}} in coin credit available — use it now?",
+      "coinsDiscount": "Coins discount",
+      "coinsMinus": "-{{amount}} discount",
+      "coupon": "Coupon discount",
+      "quantity": "Quantity discount",
+      "shipping": "Shipping",
+      "discountCode": "Discount Code",
+      "discountPh": "Enter code",
+      "apply": "Apply",
+      "digitalFee": "Digital Fee",
+      "digitalFeeTip": "This fee helps us run the platform and provide a safe, reliable shopping experience for all our customers.",
+      "cryptoFee": "Crypto fee",
+      "cryptoFeeTip": "Network & processing fee for paying with cryptocurrency.",
+      "total": "Total",
+      "next": "Next →",
+      "backToCart": "← Back to cart"
+    },
+    "toast": {
+      "couponApplied": "Coupon applied!",
+      "couponAppliedDesc": "Code \"{{code}}\" applied successfully.",
+      "invalidCoupon": "Invalid discount code",
+      "cannotContinue": "Cannot continue",
+      "reasonEmpty": "Your cart is empty.",
+      "reasonSuspended": "Your account is suspended.",
+      "reasonFlagged": "Your connection has been flagged.",
+      "reasonWait": "Please wait — running security check…",
+      "reasonTerms": "Please accept the Terms of Service and Refund Policy.",
+      "reasonProcessing": "Already processing — please wait.",
+      "checkoutError": "Checkout error",
+      "sessionMissing": "Your checkout session could not be started. Please sign in and try again.",
+      "paymentError": "Payment error",
+      "paypalStartErr": "Could not start PayPal checkout",
+      "sessionExpired": "Your checkout session expired. Please sign in and try again.",
+      "captureFailed": "Payment capture failed",
+      "paymentSuccess": "Payment successful!",
+      "orderConfirmed": "Order {{id}} confirmed.",
+      "paymentFailed": "Payment failed",
+      "networkErr": "A network error occurred. Please check your connection and try again.",
+      "somethingWrong": "Something went wrong",
+      "cancelled": "Payment cancelled",
+      "cancelledDesc": "You cancelled the payment. Your cart is still saved.",
+      "paypalErrTitle": "Payment could not be processed",
+      "paypalErrDesc": "Something went wrong with PayPal. Please try again.",
+      "cryptoFailed": "Crypto checkout failed",
+      "cryptoTryAgain": "Please try again.",
+      "cryptoCreateErr": "Could not create crypto invoice"
+    }
+  },
+  "account": {
+    "sidebar": {
+      "overview": "Overview",
+      "orders": "Orders",
+      "wishlist": "Wishlist",
+      "achievements": "Achievements",
+      "mySupport": "My Support Tickets",
+      "settings": "Settings",
+      "myAccount": "My Account",
+      "backToStore": "Back to Store",
+      "adminPanel": "Admin Panel",
+      "sellerDashboard": "Seller Dashboard",
+      "signOut": "Sign Out"
+    },
+    "common": {
+      "cancel": "Cancel",
+      "sending": "Sending...",
+      "saving": "Saving..."
+    },
+    "overview": {
+      "verifyEmail": {
+        "title": "Verify your email",
+        "desc": "Please verify your email address to unlock purchases and full account access.",
+        "sending": "Sending...",
+        "verifyNow": "Verify Now"
+      },
+      "newAccountLimit": {
+        "title": "New Account — €20 Purchase Limit",
+        "desc": "For your safety, new accounts can purchase up to €20 in the first 24 hours. Full access unlocks in {{time}}. Need to buy more before then?",
+        "contactUs": "Contact us",
+        "contactSuffix": "for a manual review."
+      },
+      "editProfile": "Edit Profile",
+      "blazeCoins": {
+        "title": "BLAZE COINS",
+        "earn": "Earn with games & purchases",
+        "balance": "Balance",
+        "totalEarned": "Total Earned"
+      },
+      "stats": {
+        "orders": "Orders",
+        "favorites": "Favorites",
+        "openTickets": "Open Tickets"
+      },
+      "toast": {
+        "verificationSent": "Verification email sent! Check your inbox.",
+        "rateLimited": "Please wait 2 minutes before requesting another email.",
+        "verificationFailed": "Failed to send verification email. Try again later."
+      }
+    },
+    "orders": {
+      "title": "ORDERS",
+      "subtitle": "Your purchase history",
+      "empty": {
+        "title": "No orders yet",
+        "subtitle": "Your purchased game codes will appear here"
+      },
+      "underReview": {
+        "title": "Security Review in Progress",
+        "desc": "Your payment was received. Our team is verifying this order before delivery — most reviews complete within 1 hour."
+      },
+      "status": {
+        "underReview": "under review"
+      },
+      "receipt": "Receipt",
+      "receiptTitle": "Download receipt (English)",
+      "toast": {
+        "receiptReady": "Receipt ready"
+      }
+    },
+    "tickets": {
+      "title": "MY SUPPORT TICKETS",
+      "subtitle": "Your support tickets and their status",
+      "newTicket": "New Ticket",
+      "form": {
+        "title": "New Support Ticket",
+        "order": "Order *",
+        "selectOrder": "Select an order...",
+        "noOrders": "You have no orders yet.",
+        "issueType": "Issue Type *",
+        "selectIssue": "Select issue...",
+        "describe": "Describe the issue *",
+        "describePlaceholder": "Please describe the problem in detail...",
+        "screenshot": "Screenshot * (proof of issue)",
+        "uploadScreenshot": "Upload Screenshot",
+        "changeScreenshot": "Change Screenshot",
+        "submit": "Submit Ticket",
+        "submitting": "Submitting...",
+        "cancel": "Cancel"
+      },
+      "status": {
+        "open": "Open",
+        "inProgress": "In Progress",
+        "underReview": "Under Review",
+        "resolved": "Resolved",
+        "closed": "Closed"
+      },
+      "labels": {
+        "yourMessage": "Your Message",
+        "yourScreenshot": "Your Screenshot",
+        "sellerResponse": "Seller Response",
+        "adminDecision": "Admin Decision",
+        "resolution": "Resolution:"
+      },
+      "resolution": {
+        "refund": "Refund issued by seller",
+        "new_code": "New code sent by seller",
+        "challenged": "Escalated to admin review",
+        "admin_resolved": "Resolved by admin",
+        "admin_refund": "Refund approved by admin"
+      },
+      "empty": {
+        "title": "No support tickets",
+        "subtitle": "Tickets you open will appear here"
+      },
+      "toast": {
+        "fillFields": "Please fill in all required fields",
+        "uploadScreenshot": "Please upload a screenshot showing the issue",
+        "sellerNotFound": "Could not find seller for this order",
+        "uploadFailed": "Failed to upload screenshot",
+        "submitFailed": "Failed to submit ticket",
+        "submitted": "Support ticket submitted!"
+      }
+    },
+    "settings": {
+      "title": "SETTINGS",
+      "subtitle": "Manage your profile information",
+      "avatar": "Avatar",
+      "email": "Email",
+      "username": "Username",
+      "displayName": "Display Name",
+      "phone": "Phone",
+      "phoneHint": "To change your phone number, please",
+      "phoneHintLink": "open a support ticket",
+      "phoneHintSuffix": ".",
+      "address": "Address",
+      "uploadPhoto": "Upload Photo",
+      "pickAvatar": "😊 Pick Avatar",
+      "chooseAvatar": "Choose your avatar:",
+      "verified": "Verified",
+      "verifyEmail": "Verify Email",
+      "editProfile": "Edit Profile",
+      "saveNow": "Save Now",
+      "toast": {
+        "avatarUpdated": "Avatar updated!",
+        "saveError": "Failed to save profile",
+        "saved": "Profile updated!",
+        "uploadFailed": "Upload failed: {{message}}",
+        "verificationSent": "Verification email sent! Check your inbox.",
+        "rateLimited": "Please wait 2 minutes before requesting another email.",
+        "verificationFailed": "Failed to send verification email. Try again later."
+      },
+      "dangerZone": "Danger Zone",
+      "deleteAccount": "Delete Account",
+      "deleteAccountDesc": "Permanently delete your account and all associated data. This action cannot be undone.",
+      "deleteConfirmTitle": "Delete your account?",
+      "deleteConfirmDesc": "This will permanently delete your account, orders history access, wishlist and Blaze Coins. This action is irreversible.",
+      "deleteConfirmButton": "Yes, delete my account",
+      "deleting": "Deleting...",
+      "deleteSuccess": "Your account has been deleted.",
+      "deleteError": "Failed to delete account. Please contact support."
+    },
+    "achievements": {
+      "title": "ACHIEVEMENTS",
+      "subtitle": "Earn rewards by shopping & engaging with the store",
+      "unlocked": "Unlocked",
+      "unlockedSection": "Unlocked ({{count}})",
+      "lockedSection": "Locked ({{count}})",
+      "next": {
+        "label": "Next Achievement"
+      },
+      "progress": {
+        "completed": "Completed",
+        "pending": "Pending",
+        "orders": "{{current}} / {{total}} orders",
+        "spent": "€{{current}} / €{{total}}",
+        "games": "{{current}} / {{total}} games",
+        "coins": "{{current}} / {{total}} coins",
+        "moreOrders": "{{count}} more orders",
+        "moreSpend": "€{{amount}} more to spend",
+        "almostThere": "Almost there!"
+      },
+      "reward": {
+        "coins": "+{{value}} Coins",
+        "coupon": "{{value}}% Coupon",
+        "blazeCoins": "+{{value}} Blaze Coins",
+        "offCoupon": "{{value}}% off coupon"
+      }
+    },
+    "referral": {
+      "title": "REFER A FRIEND",
+      "subtitle": "Share your link, earn 50 Blaze Coins per referral",
+      "copy": "Copy",
+      "copied": "Copied",
+      "friendsReferred": "Friends Referred",
+      "coinsEarned": "Coins Earned",
+      "toast": {
+        "copied": "Referral link copied!",
+        "copyFailed": "Failed to copy"
+      }
+    }
+  }
+}

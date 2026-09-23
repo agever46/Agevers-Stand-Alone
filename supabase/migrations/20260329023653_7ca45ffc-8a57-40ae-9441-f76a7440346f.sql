@@ -1,0 +1,1 @@
+DELETE FROM orders WHERE paypal_order_id LIKE 'TEST-%';

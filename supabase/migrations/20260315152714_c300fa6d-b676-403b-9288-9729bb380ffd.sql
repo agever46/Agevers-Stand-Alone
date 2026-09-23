@@ -1,0 +1,1 @@
+UPDATE public.profiles SET avatar_url = 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=' || user_id WHERE avatar_url IS NULL OR avatar_url = '';

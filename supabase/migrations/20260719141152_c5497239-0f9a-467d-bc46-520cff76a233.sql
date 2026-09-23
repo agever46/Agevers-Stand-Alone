@@ -1,0 +1,1 @@
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS fake_sales_boost integer NOT NULL DEFAULT 0;

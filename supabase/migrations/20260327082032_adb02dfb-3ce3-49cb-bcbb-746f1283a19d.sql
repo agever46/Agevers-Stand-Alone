@@ -1,0 +1,1 @@
+ALTER TABLE public.allowed_products ADD COLUMN steam_app_id text DEFAULT NULL;

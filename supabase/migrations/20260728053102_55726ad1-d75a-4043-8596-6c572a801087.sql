@@ -1,0 +1,1 @@
+UPDATE public.nav_menu_items SET href = '/' || href WHERE href NOT LIKE '/%' AND href NOT LIKE 'http%';

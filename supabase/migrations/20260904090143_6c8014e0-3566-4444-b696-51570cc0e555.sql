@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.tg_admin_email_new_order() FROM public, anon, authenticated;

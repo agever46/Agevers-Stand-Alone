@@ -1,0 +1,1 @@
+INSERT INTO public.free_gift_claims (user_id, allowed_product_id, paypal_order_id) VALUES ('5d6d85b7-c22e-4a56-a5b1-cad8580d732a', '468c50e6-4f63-4ad4-99bf-beb2201c0d60', 'TEST-MIGRATION-CLAIM');

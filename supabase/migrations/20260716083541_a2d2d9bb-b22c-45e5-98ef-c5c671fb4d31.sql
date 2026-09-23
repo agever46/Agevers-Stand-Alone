@@ -1,0 +1,1 @@
+UPDATE public.site_settings SET maintenance_mode = true, updated_at = now() WHERE id = 1;

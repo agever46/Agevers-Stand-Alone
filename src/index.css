@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.5%;
+    --foreground: 0 0% 93%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 93%;
+
+    --primary: 260 100% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 8% 16%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 240 8% 18%;
+    --muted-foreground: 0 0% 100%;
+
+    --accent: 260 60% 50%;
+    --accent-foreground: 260 100% 90%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 8% 20%;
+    --input: 240 8% 20%;
+    --ring: 260 100% 65%;
+
+    --radius: 0.5rem;
+
+    --neon-glow: 260 100% 75%;
+    --neon-purple: 220 100% 60%;
+    --neon-green: 120 100% 50%;
+    --neon-gold: 45 100% 55%;
+    --surface-glass: 240 10% 6%;
+
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 260 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-ring: 260 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Reserve scrollbar space permanently so opening a Select/Dialog/Popover
+     — which briefly hides the page scrollbar — never shifts the page width
+     and, with it, fixed-position content like the navbar. Per the CSS
+     overflow spec, when html has no explicit overflow, viewport scrolling
+     (and scrollbar-gutter) is actually driven by body, not html — set on
+     both since which one is "root" isn't worth relying on. */
+  html, body {
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Force autofill backgrounds to match dark theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px hsl(var(--secondary)) inset !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Skip-to-content link for keyboard accessibility */
+  /* Light auth panel: keep inputs white even when autofilled */
+  .auth-light-panel input:-webkit-autofill,
+  .auth-light-panel input:-webkit-autofill:hover,
+  .auth-light-panel input:-webkit-autofill:focus,
+  .auth-light-panel input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: hsl(222 47% 11%) !important;
+    caret-color: hsl(222 47% 11%);
+  }
+
+  .auth-light-panel input {
+    background-color: #ffffff !important;
+    color: hsl(222 47% 11%) !important;
+  }
+
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold;
+  }
+
+  /* Enhanced focus indicators for WCAG 2.1 AA */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.3);
+  }
+
+  .box-glow {
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.3), 0 0 45px hsl(var(--primary) / 0.1);
+  }
+
+  .box-glow-purple {
+    box-shadow: 0 0 15px hsl(var(--neon-purple) / 0.3), 0 0 45px hsl(var(--neon-purple) / 0.1);
+  }
+
+  .glass {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(240 10% 6%) 50%, hsl(var(--background)) 100%);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--neon-glow)), hsl(var(--primary)), hsl(var(--neon-purple)));
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--neon-glow)), hsl(var(--primary)), hsl(var(--neon-purple)));
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-alt {
+    background: linear-gradient(
+      180deg,
+      hsl(240 10% 6%) 0%,
+      hsl(240 10% 4.5%) 50%,
+      hsl(240 10% 6%) 100%
+    );
+  }
+
+  .phone-country-menu {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--primary) / 0.75);
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .phone-country-search-wrap {
+    background: hsl(var(--background));
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .phone-country-search {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--primary));
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .phone-country-search::placeholder,
+  .phone-country-search-icon {
+    color: hsl(var(--foreground) / 0.72) !important;
+  }
+
+  .phone-country-list {
+    background: hsl(var(--card));
+  }
+
+  .phone-country-option,
+  .phone-country-option .phone-country-name,
+  .phone-country-option .phone-country-dial,
+  .phone-country-option .phone-country-flag {
+    background: hsl(var(--card));
+    color: hsl(var(--foreground)) !important;
+    opacity: 1 !important;
+  }
+
+  .phone-country-option:hover,
+  .phone-country-option:hover .phone-country-name,
+  .phone-country-option:hover .phone-country-dial,
+  .phone-country-option:hover .phone-country-flag,
+  .phone-country-option-selected,
+  .phone-country-option-selected .phone-country-name,
+  .phone-country-option-selected .phone-country-dial,
+  .phone-country-option-selected .phone-country-flag {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground)) !important;
+    opacity: 1 !important;
+  }
+}
+
+@keyframes color-shift {
+  0% { filter: hue-rotate(0deg) brightness(1.1); }
+  25% { filter: hue-rotate(90deg) brightness(1.2); }
+  50% { filter: hue-rotate(180deg) brightness(1.1); }
+  75% { filter: hue-rotate(270deg) brightness(1.2); }
+  100% { filter: hue-rotate(360deg) brightness(1.1); }
+}
+
+.animate-color-shift {
+  animation: color-shift 2.5s ease-in-out infinite;
+}
+
+@keyframes electric-color-shift {
+  0% {
+    filter: hue-rotate(0deg) brightness(1.1) saturate(1.2);
+    drop-shadow: 0 0 8px hsl(var(--neon-glow));
+  }
+  10% {
+    filter: hue-rotate(30deg) brightness(1.5) saturate(1.8);
+  }
+  15% {
+    filter: hue-rotate(0deg) brightness(1.1) saturate(1.2);
+  }
+  25% {
+    filter: hue-rotate(90deg) brightness(1.4) saturate(2);
+  }
+  35% {
+    filter: hue-rotate(120deg) brightness(1.6) saturate(1.5);
+  }
+  40% {
+    filter: hue-rotate(90deg) brightness(1.1) saturate(1.3);
+  }
+  50% {
+    filter: hue-rotate(180deg) brightness(1.3) saturate(1.8);
+  }
+  60% {
+    filter: hue-rotate(220deg) brightness(1.5) saturate(2);
+  }
+  65% {
+    filter: hue-rotate(180deg) brightness(1.1) saturate(1.2);
+  }
+  75% {
+    filter: hue-rotate(270deg) brightness(1.4) saturate(1.8);
+  }
+  85% {
+    filter: hue-rotate(320deg) brightness(1.6) saturate(2);
+  }
+  90% {
+    filter: hue-rotate(270deg) brightness(1.2) saturate(1.3);
+  }
+  100% {
+    filter: hue-rotate(360deg) brightness(1.1) saturate(1.2);
+  }
+}
+
+.group:hover .group-hover\:animate-electric-color-shift {
+  animation: electric-color-shift 1.5s ease-in-out infinite;
+}
+
+/* =========================================================================
+   KEYVAULT-style checkout canvas (scoped to .kv-page)
+   Adopts the neon glass + grid aesthetic while keeping Agever's purple palette.
+   ========================================================================= */
+@layer utilities {
+  .text-gradient-neon {
+    background: linear-gradient(120deg, hsl(var(--neon-glow)), hsl(var(--primary)) 55%, hsl(var(--neon-purple)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .btn-neon-purple {
+    background: linear-gradient(120deg, hsl(var(--neon-glow)), hsl(var(--primary)) 50%, hsl(var(--neon-purple)));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 20px 60px -20px hsl(var(--primary) / 0.55);
+    transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+  }
+  .btn-neon-purple:hover { transform: translateY(-1px); filter: brightness(1.08); }
+}
+
+.kv-page {
+  position: relative;
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% -5%, hsl(var(--primary) / 0.35), transparent 65%),
+    radial-gradient(ellipse 60% 55% at 95% 15%, hsl(var(--neon-purple) / 0.28), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 0% 85%, hsl(var(--accent) / 0.28), transparent 65%);
+  background-attachment: fixed;
+}
+.kv-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(var(--primary) / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--primary) / 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 40%, transparent 85%);
+          mask-image: radial-gradient(ellipse at 50% 30%, black 40%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+}
+.kv-page > * { position: relative; z-index: 1; }
+
+/* Neon accent bar across the very top of the page */
+.kv-page::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    hsl(var(--neon-glow) / 0.9),
+    hsl(var(--primary)),
+    hsl(var(--neon-purple)),
+    transparent);
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Upgrade every card-like surface in Checkout to a glassmorphic panel with a
+   neon top edge — no markup changes required. Targets the repeated card
+   patterns used across Checkout as well as any .glass container. */
+.kv-page .bg-gradient-to-b.from-card,
+.kv-page .glass,
+.kv-page [class*="rounded-xl"][class*="border"][class*="bg-card"],
+.kv-page [class*="rounded-2xl"][class*="border"][class*="bg-card"] {
+  background: linear-gradient(180deg, hsl(var(--card) / 0.82), hsl(var(--card) / 0.55)) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid hsl(var(--primary) / 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--primary) / 0.35),
+    0 0 0 1px hsl(var(--neon-purple) / 0.08),
+    0 30px 80px -40px hsl(var(--primary) / 0.45) !important;
+}
+
+/* Inputs inside the checkout get a subtle neon focus ring. */
+.kv-page input:not([type="checkbox"]):not([type="radio"]):focus,
+.kv-page textarea:focus,
+.kv-page select:focus {
+  border-color: hsl(var(--primary) / 0.65) !important;
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.18);
+  outline: none;
+}
+
+/* =========================================================================
+   Stronger visual separation between checkout panels + between line items.
+   Each glass card gets a distinct gradient top edge + gradient header strip,
+   and repeated product rows are separated by a neon gradient divider.
+   ========================================================================= */
+.kv-page .bg-gradient-to-b.from-card,
+.kv-page .glass,
+.kv-page [class*="rounded-xl"][class*="border"][class*="bg-card"],
+.kv-page [class*="rounded-2xl"][class*="border"][class*="bg-card"] {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--primary) / 0.14) 0%,
+      hsl(var(--card) / 0.85) 90px,
+      hsl(var(--card) / 0.55) 100%) !important;
+}
+.kv-page .bg-gradient-to-b.from-card::before,
+.kv-page .glass::before,
+.kv-page [class*="rounded-xl"][class*="border"][class*="bg-card"]::before,
+.kv-page [class*="rounded-2xl"][class*="border"][class*="bg-card"]::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    hsl(var(--neon-glow)),
+    hsl(var(--primary)) 45%,
+    hsl(var(--neon-purple)) 100%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gradient divider between sibling product rows / list items inside any panel. */
+.kv-page [class*="space-y-"] > * + *,
+.kv-page [class*="divide-y"] > * + * {
+  position: relative;
+}
+.kv-page [class*="space-y-4"] > * + *::before,
+.kv-page [class*="space-y-6"] > * + *::before,
+.kv-page [class*="space-y-3"] > * + *::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(90deg,
+    transparent,
+    hsl(var(--primary) / 0.55) 20%,
+    hsl(var(--neon-purple) / 0.55) 80%,
+    transparent);
+}
+
+/* Cart line-item cards: darker recessed surface + animated neon border on hover,
+   inspired by the reference screenshot. Targets rounded item rows inside the
+   Cart panel without changing markup. */
+.kv-page .space-y-4 > [class*="rounded-xl"],
+.kv-page .space-y-4 > [class*="rounded-lg"],
+.kv-page .space-y-3 > [class*="rounded-xl"],
+.kv-page .space-y-3 > [class*="rounded-lg"] {
+  position: relative;
+  background: linear-gradient(160deg,
+    hsl(240 12% 4%) 0%,
+    hsl(240 12% 6%) 55%,
+    hsl(260 30% 8%) 100%) !important;
+  border: 3px solid hsl(var(--primary)) !important;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.kv-page .space-y-4 > [class*="rounded-xl"]:hover,
+.kv-page .space-y-4 > [class*="rounded-lg"]:hover,
+.kv-page .space-y-3 > [class*="rounded-xl"]:hover,
+.kv-page .space-y-3 > [class*="rounded-lg"]:hover {
+  border-color: hsl(var(--neon-gold)) !important;
+  border-width: 3px !important;
+  box-shadow:
+    0 0 0 1px hsl(var(--neon-gold) / 0.55),
+    0 0 24px -4px hsl(var(--neon-gold) / 0.55),
+    0 0 48px -12px hsl(var(--neon-gold) / 0.45);
+  transform: translateY(-1px);
+}

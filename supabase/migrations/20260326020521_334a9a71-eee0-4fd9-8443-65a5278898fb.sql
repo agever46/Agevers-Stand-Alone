@@ -1,0 +1,1 @@
+UPDATE allowed_products SET expiration_date = NULL WHERE expiration_date IS NOT NULL AND expiration_date < NOW();

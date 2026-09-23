@@ -1,0 +1,1 @@
+SELECT cron.alter_job(jobid, schedule => '7 * * * *') FROM cron.job WHERE jobname = 'auto-group-gift-cards-daily';

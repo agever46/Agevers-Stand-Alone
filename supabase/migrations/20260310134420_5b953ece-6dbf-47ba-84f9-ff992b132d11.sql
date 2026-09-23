@@ -1,0 +1,1 @@
+ALTER TABLE public.allowed_products ADD COLUMN region text NOT NULL DEFAULT 'Global';

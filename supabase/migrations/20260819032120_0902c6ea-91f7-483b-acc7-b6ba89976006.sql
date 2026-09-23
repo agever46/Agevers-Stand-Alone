@@ -1,0 +1,1 @@
+DELETE FROM public.free_gift_claims WHERE paypal_order_id = 'TEST-MIGRATION-CLAIM';

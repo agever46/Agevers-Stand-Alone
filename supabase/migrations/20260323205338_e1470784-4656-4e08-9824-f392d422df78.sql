@@ -1,0 +1,1 @@
+UPDATE allowed_products SET store = 'In-Game Items' WHERE store = 'Epic Games' AND (LOWER(title) LIKE '%fortnite%' OR LOWER(title) LIKE '%v-bucks%' OR LOWER(title) LIKE '%vbucks%')

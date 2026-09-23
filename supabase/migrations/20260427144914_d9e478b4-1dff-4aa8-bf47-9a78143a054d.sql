@@ -1,0 +1,1 @@
+ALTER TABLE public.search_logs ADD COLUMN IF NOT EXISTS user_agent text;

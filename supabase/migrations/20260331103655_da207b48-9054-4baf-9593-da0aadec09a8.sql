@@ -1,0 +1,1 @@
+ALTER TABLE public.allowed_products ADD COLUMN IF NOT EXISTS aliexpress_product_id text DEFAULT NULL;

@@ -1,0 +1,1 @@
+ALTER TABLE public.allowed_products ADD COLUMN store text NOT NULL DEFAULT 'Steam';

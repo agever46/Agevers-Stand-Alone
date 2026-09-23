@@ -1,0 +1,1 @@
+UPDATE public.collections SET auto_group_keyword = 'Toys R', updated_at = now() WHERE slug = 'toys-r-us-gift-cards';

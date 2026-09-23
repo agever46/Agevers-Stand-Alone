@@ -1,0 +1,1 @@
+UPDATE profiles SET phone = regexp_replace(phone, '\s+', '', 'g'), updated_at = now() WHERE phone ~ '\s';

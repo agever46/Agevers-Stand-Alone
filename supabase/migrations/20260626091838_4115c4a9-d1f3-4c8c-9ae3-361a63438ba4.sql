@@ -1,0 +1,1 @@
+UPDATE public.daily_deals SET is_active = true, display_order = 1 WHERE id = 'af6d352c-7a22-4e45-83c4-be2305182c12';

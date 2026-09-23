@@ -1,0 +1,1 @@
+ALTER TABLE public.kinguin_products ADD COLUMN IF NOT EXISTS last_webhook_update TIMESTAMPTZ;

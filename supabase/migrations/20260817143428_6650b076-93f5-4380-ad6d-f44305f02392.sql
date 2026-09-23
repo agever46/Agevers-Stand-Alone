@@ -1,0 +1,1 @@
+GRANT SELECT (phone, address, email_verified), UPDATE (address, phone) ON public.profiles TO authenticated;

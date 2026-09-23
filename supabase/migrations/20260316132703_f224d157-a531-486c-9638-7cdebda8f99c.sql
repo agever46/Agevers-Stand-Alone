@@ -1,0 +1,1 @@
+DELETE FROM products WHERE seller_id NOT IN (SELECT id FROM auth.users);

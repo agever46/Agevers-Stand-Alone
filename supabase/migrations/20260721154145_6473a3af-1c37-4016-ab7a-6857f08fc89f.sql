@@ -1,0 +1,1 @@
+UPDATE public.profiles SET avatar_url = '/__l5e/assets-v1/a1f39eb9-3a17-444a-be79-328f21ee3100/admin-avatar.png' WHERE user_id = '5b7d4817-31e0-4a42-911d-4cc0cf50c893';

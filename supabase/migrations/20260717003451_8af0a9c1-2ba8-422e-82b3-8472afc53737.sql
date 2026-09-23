@@ -1,0 +1,1 @@
+ALTER TABLE public.fraud_scores ADD COLUMN IF NOT EXISTS new_account_limit_exempt boolean NOT NULL DEFAULT false;

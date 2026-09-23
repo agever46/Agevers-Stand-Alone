@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Public can view active kinguin products" ON public.kinguin_products;

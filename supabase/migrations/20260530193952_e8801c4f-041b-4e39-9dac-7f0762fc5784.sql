@@ -1,0 +1,1 @@
+ALTER TABLE public.play_purchases ADD COLUMN IF NOT EXISTS paypal_order_id TEXT UNIQUE;

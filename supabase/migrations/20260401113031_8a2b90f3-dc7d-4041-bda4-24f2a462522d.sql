@@ -1,0 +1,1 @@
+UPDATE allowed_products SET description = NULL WHERE description ILIKE '%aliexpress%';

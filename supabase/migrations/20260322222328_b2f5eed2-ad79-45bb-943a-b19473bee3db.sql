@@ -1,0 +1,1 @@
+UPDATE paraphrase_queue SET status = 'pending', updated_at = now() WHERE status = 'processing';

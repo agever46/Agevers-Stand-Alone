@@ -1,0 +1,1 @@
+UPDATE public.orders SET is_held = true, status = 'held' WHERE id = '248b1d8d-7554-4f0b-aa73-0af0df1c6ffc';

@@ -1,0 +1,1 @@
+DELETE FROM orders WHERE id NOT IN ('997cde84-2515-404f-bd6e-6614d6c264e2', '7f1ace70-3da6-424b-ad85-e486f430771e');

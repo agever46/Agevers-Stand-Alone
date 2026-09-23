@@ -1,0 +1,1 @@
+UPDATE profiles SET avatar_url = 'https://ppernxjnicippytjuxpz.supabase.co/storage/v1/object/public/avatars/admin-avatar.jpg', updated_at = now() WHERE user_id = '0efdf045-36a2-408e-905e-bcc877742db9';

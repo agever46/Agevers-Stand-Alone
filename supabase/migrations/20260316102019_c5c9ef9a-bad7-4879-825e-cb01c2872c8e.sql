@@ -1,0 +1,1 @@
+DELETE FROM allowed_products WHERE id IN ('41fa79f5-f89e-4646-88ad-b951a85621bb', '5ee97a14-4a5b-48fa-8d46-5b49a5753c1c', 'eb289740-4e60-4dda-beee-19f785c5a05c', '02dec527-a1c0-483b-b591-a6185fb77e58', 'e1d4665f-62b7-4c75-8da8-8d7138520a57');

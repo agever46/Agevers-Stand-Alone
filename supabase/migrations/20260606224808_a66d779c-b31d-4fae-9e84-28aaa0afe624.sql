@@ -1,0 +1,1 @@
+ALTER TABLE public.order_invoices ALTER COLUMN pdf_original DROP NOT NULL;

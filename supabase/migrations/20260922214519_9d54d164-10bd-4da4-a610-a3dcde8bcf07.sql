@@ -1,0 +1,1 @@
+UPDATE public.internal_secrets SET value = '9820fc36bef5a8480f480c6ddc85b988063b472c3156956eebce54f27757ef4a' WHERE key = 'internal_notify_token';

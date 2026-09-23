@@ -1,0 +1,1 @@
+ALTER TABLE public.pending_paypal_orders ADD COLUMN IF NOT EXISTS paypal_payer_snapshot jsonb; ALTER TABLE public.orders ADD COLUMN IF NOT EXISTS paypal_payer_snapshot jsonb;

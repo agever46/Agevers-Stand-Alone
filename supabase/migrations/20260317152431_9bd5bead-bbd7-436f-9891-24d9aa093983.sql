@@ -1,0 +1,1 @@
+ALTER TABLE public.withdrawal_requests ADD COLUMN seller_seen boolean NOT NULL DEFAULT false;

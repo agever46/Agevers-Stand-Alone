@@ -1,0 +1,1 @@
+UPDATE public.giveaways SET prize_image_url = 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=2000' WHERE id = 'c9e5281c-31d3-4d9f-9d91-125be9970b65';

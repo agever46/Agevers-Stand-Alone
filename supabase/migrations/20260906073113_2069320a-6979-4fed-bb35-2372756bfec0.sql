@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS public.__refresh_email_queue_key(text);

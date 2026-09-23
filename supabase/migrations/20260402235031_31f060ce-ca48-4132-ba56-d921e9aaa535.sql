@@ -1,0 +1,1 @@
+ALTER TABLE public.discount_codes ADD COLUMN max_order_amount numeric DEFAULT 0;

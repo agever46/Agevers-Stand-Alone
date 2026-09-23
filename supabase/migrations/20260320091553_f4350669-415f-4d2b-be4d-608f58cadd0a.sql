@@ -1,0 +1,1 @@
+DELETE FROM paraphrase_queue WHERE status IN ('processing', 'completed', 'failed', 'pending');

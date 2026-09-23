@@ -1,0 +1,1 @@
+ALTER TABLE public.live_support_settings ADD COLUMN IF NOT EXISTS override_mode text NOT NULL DEFAULT 'auto' CHECK (override_mode IN ('auto', 'force_on', 'force_off'));

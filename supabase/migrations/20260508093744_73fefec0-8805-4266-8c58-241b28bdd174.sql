@@ -1,0 +1,1 @@
+ALTER TABLE public.giveaways ADD COLUMN IF NOT EXISTS fake_entries_boost integer NOT NULL DEFAULT 0;

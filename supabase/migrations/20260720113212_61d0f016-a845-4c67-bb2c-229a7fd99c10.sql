@@ -1,0 +1,1 @@
+CREATE POLICY "Users can read their own fraud score exemption" ON public.fraud_scores FOR SELECT TO authenticated USING (auth.uid() = user_id);

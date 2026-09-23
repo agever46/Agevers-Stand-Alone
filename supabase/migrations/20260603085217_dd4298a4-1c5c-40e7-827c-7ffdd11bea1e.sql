@@ -1,0 +1,1 @@
+UPDATE public.game_groups SET slug = '007-first-light' WHERE id = 'e0a32620-87c0-418f-bee5-d5f43e189bd9';

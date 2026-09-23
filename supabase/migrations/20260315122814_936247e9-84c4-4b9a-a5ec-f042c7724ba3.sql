@@ -1,0 +1,1 @@
+ALTER TABLE public.seller_sales ADD COLUMN available_at timestamp with time zone NOT NULL DEFAULT (now() + interval '14 days');

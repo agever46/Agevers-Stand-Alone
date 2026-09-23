@@ -1,0 +1,1 @@
+UPDATE public.profiles SET avatar_url = 'https://api.dicebear.com/9.x/fun-emoji/svg?seed=' || user_id WHERE avatar_url LIKE '%dicebear%';

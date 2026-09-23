@@ -1,0 +1,1 @@
+DROP POLICY "Anyone can view active kinguin products" ON public.kinguin_products;

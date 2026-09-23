@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>https://agevers.com/news/bungie-s-marathon-a-long-term-narrative-vision-already-in-place</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Agever's</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-05T09:00:17.503+00:00</news:publication_date>
+      <news:title>Bungie&apos;s Marathon: A Long-Term Narrative Vision Already in Place</news:title>
+      <news:keywords>marathon, bungie, narrative, story, game development, updates</news:keywords>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://agevers.com/news/today-s-top-gaming-entertainment-deals-yoshi-dark-knight-4k-more</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Agever's</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-04T09:00:21.117+00:00</news:publication_date>
+      <news:title>Today&apos;s Top Gaming &amp; Entertainment Deals: Yoshi, Dark Knight 4K &amp; More!</news:title>
+      <news:keywords>deals, nintendo switch, 4k uhd, anime, yoshi, dark knight, jojo</news:keywords>
+    </news:news>
+  </url>
+</urlset>

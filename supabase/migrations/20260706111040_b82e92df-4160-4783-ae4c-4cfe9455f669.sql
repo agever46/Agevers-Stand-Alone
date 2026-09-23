@@ -1,0 +1,1 @@
+UPDATE pending_paypal_orders SET status='expired', last_error=COALESCE(last_error,'')||' [auto-expired: stale >24h]' WHERE status IN ('created','captured') AND created_at < now() - interval '24 hours';

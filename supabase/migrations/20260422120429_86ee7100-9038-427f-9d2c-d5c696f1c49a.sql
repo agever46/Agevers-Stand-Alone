@@ -1,0 +1,1 @@
+ALTER TABLE public.brand_overrides ADD COLUMN IF NOT EXISTS image_zoom numeric NOT NULL DEFAULT 1.0;

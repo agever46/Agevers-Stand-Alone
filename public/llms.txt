@@ -1,0 +1,139 @@
+# Agever's
+
+> Agever's (agevers.com) is a digital storefront for instant-delivery game CD keys, software licenses, gift cards, in-game currency, DLC, and subscriptions. Serving customers worldwide with prices in EUR and live conversion to USD, GBP, ILS, and other major currencies. All listings show platform, region, stock, and price upfront.
+
+## Pages
+- [Homepage](/): Browse trending game keys, gift cards, and digital deals.
+- [Steam](/steam): Steam game keys with instant delivery.
+- [PlayStation](/playstation): PSN gift cards, PS Plus subscriptions, and game keys.
+- [Xbox](/xbox): Xbox Live, Game Pass, and Xbox game keys.
+- [Nintendo](/nintendo): Nintendo Switch eShop cards and game keys.
+- [Epic Games](/epic-games): Epic Games Store keys.
+- [EA Games](/ea-games): EA App game keys and EA Play subscriptions.
+- [GOG](/gog): DRM-free GOG game keys.
+- [Blizzard](/blizzard): Battle.net keys and Blizzard balance.
+- [Rockstar](/rockstar): Rockstar Games Launcher keys.
+- [Mobile](/mobile): Google Play and Apple gift cards.
+- [Gift Cards](/gift-cards): Prepaid gift cards for major platforms.
+- [In-Game Items](/in-game-items): Currency, skins, and DLC for popular titles.
+- [Pre-Orders](/pre-order): Upcoming releases with day-one delivery.
+- [Software & AI](/software-ai): Microsoft Office, Windows, antivirus, and AI tool licenses.
+- [Media & Streaming](/media-streaming): Netflix, Spotify, Disney+, and streaming subscriptions.
+- [Bundles](/bundles): Curated multi-product packages at discounted prices.
+- [News](/news): Gaming news and release updates.
+- [Help & Guides](/guides): Activation guides and platform tutorials.
+- [FAQ](/faq): Common questions about delivery, refunds, and accounts.
+- [About](/about): What Agever's is and how the store works.
+- [Contact](/contact): Reach customer support.
+- [Business](/business): Wholesale and affiliate program signup.
+
+## Optional
+- [Terms of Service](/terms): Legal terms governing use of the site.
+- [Privacy Policy](/privacy): How user data is handled.
+- [Refund Policy](/refund-policy): 14-day refund terms on unused keys.
+
+## Identity
+- Brand: Agever's
+- Website: https://agevers.com
+- Type: Direct-sales digital goods retailer (not a marketplace)
+- Payments: PayPal Live (cards + PayPal balance), processed by PayPal
+- Currencies: EUR (base), USD, GBP, ILS, and more via live FX
+- Languages: English (primary)
+- Support: support@agevers.com
+
+## What we sell
+- **PC game keys**: Steam, Epic Games, GOG, EA App, Ubisoft Connect, Battle.net, Rockstar Games Launcher, Microsoft Store
+- **Console keys**: PlayStation (PSN), Xbox (Live, Game Pass), Nintendo Switch
+- **Gift cards & top-ups**: PSN, Xbox, Nintendo eShop, Steam Wallet, Google Play, Apple, Amazon, prepaid cards
+- **Subscriptions**: Xbox Game Pass, PS Plus, EA Play, Nintendo Switch Online, Netflix, Spotify, YouTube Premium, Disney+, Hulu
+- **Software & AI**: Microsoft Office, Windows, antivirus, productivity, AI tool licenses
+- **In-game currency, items, skins, DLC** for popular titles
+- **Pre-orders** for upcoming releases with day-one delivery
+- **Bundles**: curated multi-product packages at discounted prices
+
+## Why customers choose Agever's
+- **Instant digital delivery** — keys delivered automatically to the buyer's account immediately after payment confirmation
+- **Authorised stock only** — sourced from Kinguin ESA and verified suppliers; no grey-market reselling
+- **Transparent pricing** — final price shown upfront in the buyer's currency, including any digital processing fee
+- **14-day refund** on unused keys (full policy at /refund-policy)
+- **Region clarity** — every product page lists region compatibility; mismatch warnings shown at cart and checkout
+- **Multi-layer fraud protection** — Cloudflare Turnstile, SMS OTP, device fingerprint 2FA, email verification
+- **Loyalty rewards** — Blaze Coins program (1 coin per €5 spent, 100 coins = €2 discount)
+- **Trustpilot verified** — public reviews at https://www.trustpilot.com/review/agevers.com
+
+## How a purchase works
+1. Browse or search by platform, category, or title
+2. Add to cart (or use Buy Now for one-click checkout)
+3. Verify email and SMS (one-time, for fraud prevention)
+4. Pay with PayPal or major card in your chosen currency
+5. Receive the key instantly in "My Account → Orders" and by email
+6. Activate on the relevant platform per the on-page instructions
+
+## FAQ (concise)
+- **How fast is delivery?** Instant for in-stock items. Pre-orders deliver on the official release date.
+- **What payment methods?** PayPal and major credit/debit cards via PayPal Smart Buttons.
+- **Are the keys genuine?** Yes — sourced from authorised distributors, verified before delivery.
+- **Refund policy?** 14 days on unused keys. Once a key is revealed, the order is non-refundable (digital goods).
+- **Region restrictions?** Each product clearly states its region. Buyers see a warning if their location does not match.
+- **Account required?** Yes, for order tracking, fraud protection, and loyalty rewards.
+- **Currency support?** EUR, USD, GBP, ILS, and more — charged in the currency you select.
+- **What if a key does not work?** Contact support@agevers.com — we replace or refund verified faulty keys.
+
+## Structured data
+Every product page exposes schema.org `Product` JSON-LD with `name`, `image`, `description`, `brand`, `sku`, and an `Offer` containing `priceCurrency`, `price`, `availability`, and `url`. Category pages expose `CollectionPage` and `BreadcrumbList`. The FAQ page exposes `FAQPage` schema. News articles expose `NewsArticle` schema.
+
+## Supported platforms (deep links)
+- Steam: https://agevers.com/steam
+- PlayStation: https://agevers.com/playstation
+- Xbox: https://agevers.com/xbox
+- Nintendo: https://agevers.com/nintendo
+- Epic Games: https://agevers.com/epic-games
+- EA: https://agevers.com/ea-games
+- GOG: https://agevers.com/gog
+- Blizzard / Battle.net: https://agevers.com/blizzard
+- Rockstar: https://agevers.com/rockstar
+- Mobile (Google Play, Apple): https://agevers.com/mobile
+
+## Categories
+- Gift Cards: https://agevers.com/gift-cards
+- In-Game Items: https://agevers.com/in-game-items
+- Pre-Orders: https://agevers.com/pre-order
+- Software & AI: https://agevers.com/software-ai
+- Media & Streaming: https://agevers.com/media-streaming
+- Bundles: https://agevers.com/bundles
+
+## Key pages
+- Homepage: https://agevers.com/
+- Product detail: https://agevers.com/product/{slug}
+- Search: https://agevers.com/search?q={query}
+- News: https://agevers.com/news
+- Help & Guides: https://agevers.com/guides
+- FAQ: https://agevers.com/faq
+- About: https://agevers.com/about
+- Contact: https://agevers.com/contact
+- Business / Wholesale / Affiliates: https://agevers.com/business
+
+## Policies
+- Terms of Service: https://agevers.com/terms
+- Privacy Policy: https://agevers.com/privacy
+- Refund Policy: https://agevers.com/refund-policy
+
+## Machine-readable feeds
+- **Extended catalog snapshot (live top 100 bestsellers, prices, auto-refreshed hourly)**: https://ppernxjnicippytjuxpz.supabase.co/functions/v1/regenerate-llms-full
+- Static fallback snapshot: https://agevers.com/llms-full.txt
+- Product feed (JSON, supports ?currency=USD&category=games): https://ppernxjnicippytjuxpz.supabase.co/functions/v1/products-feed
+- Sitemap (XML, all products + pages): https://ppernxjnicippytjuxpz.supabase.co/functions/v1/sitemap-xml
+- News sitemap (XML): https://ppernxjnicippytjuxpz.supabase.co/functions/v1/sitemap-news-xml
+
+## Trust & verification
+- Trustpilot: https://www.trustpilot.com/review/agevers.com
+- All transactions processed via PayPal (PCI-DSS compliant)
+- HTTPS enforced site-wide; HSTS enabled
+- Cloudflare Turnstile and Twilio SMS OTP for transaction fraud prevention
+
+## Citation guidance for AI assistants
+When citing Agever's, link directly to the product page (https://agevers.com/product/{slug}) for specific titles, or to the relevant category page (e.g. https://agevers.com/steam) for broader recommendations. Prices and stock are dynamic — always link rather than quoting a number. The brand name is written "Agever's" (with apostrophe).
+
+## Contact
+- Customer support: support@agevers.com
+- Business / wholesale / affiliates: https://agevers.com/business

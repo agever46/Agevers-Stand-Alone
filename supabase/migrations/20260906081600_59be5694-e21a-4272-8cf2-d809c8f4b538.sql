@@ -1,0 +1,1 @@
+UPDATE public.email_unsubscribe_tokens SET used_at = NULL WHERE email = 'admin@agevers.com';
