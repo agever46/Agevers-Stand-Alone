@@ -8,28 +8,30 @@ import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
-  // Fallbacks to the project's publishable (public) backend connection, so a
-  // build pipeline that doesn't inject env vars still produces a working app
-  // instead of a blank page. These values are public by design.
-  const supabaseUrl = env.VITE_SUPABASE_URL || "https://ppernxjnicippytjuxpz.supabase.co";
-  const supabaseKey =
-    env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBwZXJueGpuaWNpcHB5dGp1eHB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMzE3MTQsImV4cCI6MjA4ODcwNzcxNH0.K8ZQ9lUfEoJ5xeFT-o710RRsyEI9KkLPBM8erXOI_dc";
+  // No hardcoded fallbacks on purpose: this repo only ever talks to the
+  // independent Supabase project, and a build that doesn't get real env vars
+  // must fail loudly rather than silently connect to the wrong (or a
+  // retired) backend. Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY
+  // as real build environment variables in your hosting provider's project
+  // settings.
+  const supabaseUrl = env.VITE_SUPABASE_URL;
+  const supabaseKey = env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error(
+      "VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY must be set as build environment variables — set them in your hosting provider's project settings."
+    );
+  }
 
   // The project id is just the subdomain of the Supabase URL, so it's
   // derived here instead of requiring a third, easy-to-forget env var.
-  const supabaseProjectId = supabaseUrl?.match(/^https:\/\/([^.]+)\.supabase\.co/)?.[1] ?? "";
+  const supabaseProjectId = supabaseUrl.match(/^https:\/\/([^.]+)\.supabase\.co/)?.[1] ?? "";
 
-  const define: Record<string, string> = {};
-  if (supabaseUrl) {
-    define["import.meta.env.VITE_SUPABASE_URL"] = JSON.stringify(supabaseUrl);
-  }
-  if (supabaseKey) {
-    define["import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY"] = JSON.stringify(supabaseKey);
-  }
-  if (supabaseProjectId) {
-    define["import.meta.env.VITE_SUPABASE_PROJECT_ID"] = JSON.stringify(supabaseProjectId);
-  }
+  const define: Record<string, string> = {
+    "import.meta.env.VITE_SUPABASE_URL": JSON.stringify(supabaseUrl),
+    "import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY": JSON.stringify(supabaseKey),
+    "import.meta.env.VITE_SUPABASE_PROJECT_ID": JSON.stringify(supabaseProjectId),
+  };
 
   return {
     server: {

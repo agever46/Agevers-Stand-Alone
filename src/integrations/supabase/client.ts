@@ -6,6 +6,21 @@ import { brokeredPreviewStorage } from './previewAuthStorage';
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
+// Belt-and-suspenders alongside the build-time check in vite.config.ts: if a
+// host's build somehow still ships without these, fail loudly in the
+// browser instead of leaving visitors with a silently broken client.
+if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+  const message =
+    'Missing Supabase configuration (VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY). ' +
+    "This build did not receive the required environment variables — check your hosting provider's project settings.";
+  if (typeof document !== 'undefined') {
+    document.body.innerHTML =
+      '<div style="font-family:sans-serif;padding:2rem;max-width:640px;margin:0 auto;text-align:center">' +
+      '<h1 style="color:#dc2626">Configuration error</h1><p>' + message + '</p></div>';
+  }
+  throw new Error(message);
+}
+
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
