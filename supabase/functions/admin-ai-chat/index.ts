@@ -1938,10 +1938,7 @@ BEHAVIOR:
 - admin and super_admin roles are mutually exclusive
 
 LEARNING / MISSING CAPABILITY:
-If you CANNOT do something:
-1. Explain what's missing
-2. Ask: "רוצה שאבקש את היכולת הזו מ-Lovable?"
-3. If yes, format a feature request block
+If you CANNOT do something, explain to the admin what's missing and why.
 
 WEBSITE CONTENT KNOWLEDGE:
 === PRIVACY POLICY ===
@@ -2091,11 +2088,6 @@ Activation guides for Steam, PlayStation, Xbox, Nintendo, Epic, GOG. Coins earne
             }
 
             if (!aiRes.ok) {
-              if (aiRes.status === 402) {
-                send("error", { error: "AI credits exhausted" });
-                controller.close();
-                return;
-              }
               const errText = await aiRes.text();
               send("error", { error: `AI error ${aiRes.status}: ${errText}` });
               controller.close();
