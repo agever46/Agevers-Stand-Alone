@@ -23,6 +23,8 @@ interface CartContextType {
   canAddItem: (price: number) => boolean;
   removeItem: (cartItemId: string) => void;
   updateQuantity: (offerId: string, delta: number) => void;
+  /** Corrects a cart item's price in place (e.g. a live supplier-price re-check at checkout). */
+  updatePrice: (offerId: string, newPrice: number) => void;
   clearCart: () => void;
   count: number;
   total: number;
@@ -235,6 +237,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setItems(next);
   }, [newAccountLimited, limitEur]);
 
+  const updatePrice = useCallback((offerId: string, newPrice: number) => {
+    setItems((prev) => {
+      const next = prev.map((i) => (i.offerId === offerId ? { ...i, price: newPrice } : i));
+      itemsRef.current = next;
+      return next;
+    });
+  }, []);
+
   const clearCart = useCallback(() => {
     itemsRef.current = [];
     setItems([]);
@@ -245,7 +255,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ items, addItem, canAddItem, removeItem, updateQuantity, clearCart, count, total }}>
+    <CartContext.Provider value={{ items, addItem, canAddItem, removeItem, updateQuantity, updatePrice, clearCart, count, total }}>
       {children}
     </CartContext.Provider>
   );

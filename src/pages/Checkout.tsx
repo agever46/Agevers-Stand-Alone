@@ -170,7 +170,7 @@ const ensurePayPalSdk = (clientId: string, currency: string) => {
 
 const Checkout = () => {
   useNoIndex();
-  const { items, removeItem, updateQuantity, clearCart, total, count } = useCart();
+  const { items, removeItem, updateQuantity, updatePrice, clearCart, total, count } = useCart();
   const { user, loading: authLoading } = useAuth();
   const { currency, convert, symbol, formatPrice, rates } = useCurrency();
   const navigate = useNavigate();
@@ -193,6 +193,7 @@ const Checkout = () => {
   const [preCheckBlocked, setPreCheckBlocked] = useState(false);
   const [preCheckMessage, setPreCheckMessage] = useState<string | null>(null);
   const [preCheckLoading, setPreCheckLoading] = useState(true);
+  const [livePriceCheckLoading, setLivePriceCheckLoading] = useState(true);
   const [qtyDiscounts, setQtyDiscounts] = useState<{ min_quantity: number; discount_pct: number; label: string | null }[]>([]);
 
   // 2-step checkout: 1 = cart/discount, 2 = billing + payment
@@ -516,6 +517,80 @@ const Checkout = () => {
     return () => { cancelled = true; };
   }, [user, items.length, total]);
 
+  // Re-verify cart items against Kinguin's LIVE price/stock before payment is
+  // allowed. Our kinguin_products cache only refreshes every 5h (cron), so
+  // without this a customer could pay a stale price or try to buy something
+  // that's gone out of stock since our last sync. Deliberately keyed on
+  // items.length (not price/total) so our own corrections below don't
+  // re-trigger this effect.
+  useEffect(() => {
+    if (!user || items.length === 0) {
+      setLivePriceCheckLoading(false);
+      return;
+    }
+    let cancelled = false;
+    setLivePriceCheckLoading(true);
+    (async () => {
+      const accessToken = await getFreshAccessToken();
+      if (cancelled) return;
+      if (!accessToken) {
+        setLivePriceCheckLoading(false);
+        return;
+      }
+      const { data, error } = await supabase.functions.invoke("verify-cart-live", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        body: {
+          items: items.map((item) => ({ offerId: item.offerId, quantity: item.quantity, price: item.price })),
+        },
+      });
+      if (cancelled) return;
+      if (error || !Array.isArray(data?.results)) {
+        setLivePriceCheckLoading(false);
+        return;
+      }
+
+      const priceChanges: { title: string; oldPrice: number; newPrice: number }[] = [];
+      const outOfStock: string[] = [];
+
+      for (const result of data.results as Array<{
+        offerId: string; checked: boolean; priceChanged: boolean;
+        oldPrice?: number; newPrice?: number; inStock: boolean;
+      }>) {
+        const item = items.find((i) => i.offerId === result.offerId);
+        if (!item) continue;
+
+        if (!result.inStock) {
+          outOfStock.push(item.title);
+          removeItem(item.cartItemId);
+          continue;
+        }
+        if (result.priceChanged && result.newPrice != null) {
+          priceChanges.push({ title: item.title, oldPrice: item.price, newPrice: result.newPrice });
+          updatePrice(item.offerId, result.newPrice);
+        }
+      }
+
+      if (outOfStock.length > 0) {
+        toast({
+          title: t("checkout.toast.outOfStockTitle", "Item no longer available"),
+          description: outOfStock.join(", "),
+          variant: "destructive",
+        });
+      }
+      if (priceChanges.length > 0) {
+        toast({
+          title: t("checkout.toast.priceUpdatedTitle", "Price updated"),
+          description: priceChanges
+            .map((c) => `${c.title}: €${c.oldPrice.toFixed(2)} → €${c.newPrice.toFixed(2)}`)
+            .join(" · "),
+        });
+      }
+
+      setLivePriceCheckLoading(false);
+    })();
+    return () => { cancelled = true; };
+  }, [user, items.length]);
+
 
   // Guest checkout has been fully removed — an authenticated session is required
   // to reach this page (the effect above redirects unauthenticated visitors to /auth).
@@ -562,6 +637,7 @@ const Checkout = () => {
       if (profile?.account_status === 'suspended') return t("checkout.toast.reasonSuspended");
       if (preCheckBlocked) return preCheckMessage || t("checkout.toast.reasonFlagged");
       if (preCheckLoading) return t("checkout.toast.reasonWait");
+      if (livePriceCheckLoading) return t("checkout.toast.reasonWait");
       if (!agreedToTerms) return t("checkout.toast.reasonTerms");
       if (processing) return t("checkout.toast.reasonProcessing");
       return null;
@@ -1242,12 +1318,16 @@ const Checkout = () => {
                       aria-label="PayPal payment buttons"
                       className="min-h-[120px] bg-white rounded-lg p-3"
                     />
-                    {(processing || preCheckLoading) && (
+                    {(processing || preCheckLoading || livePriceCheckLoading) && (
                       <div className="fixed inset-0 flex items-center justify-center bg-background/90 backdrop-blur-sm z-[120] p-4">
                         <div className="flex flex-col items-center gap-4 bg-card border border-border/60 rounded-xl px-8 py-7 shadow-[0_0_35px_hsl(var(--primary)/0.35)] max-w-sm w-full text-center">
                           <div className="h-10 w-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
                           <p className="text-sm text-foreground font-display tracking-wider">
-                          {preCheckLoading ? t("checkout.pay.securityCheck") : t("checkout.pay.processing")}
+                          {preCheckLoading
+                            ? t("checkout.pay.securityCheck")
+                            : livePriceCheckLoading
+                              ? t("checkout.pay.priceCheck", "Checking live prices…")
+                              : t("checkout.pay.processing")}
                           </p>
                         </div>
                       </div>
@@ -1301,7 +1381,7 @@ const Checkout = () => {
                     </div>
                     <button
                     type="button"
-                    disabled={processing || preCheckLoading}
+                    disabled={processing || preCheckLoading || livePriceCheckLoading}
                     onClick={async () => {
                       const reason = gateRef.current.check();
                       if (reason) {
