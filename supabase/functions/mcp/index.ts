@@ -198,7 +198,7 @@ var list_my_orders_default = defineTool3({
 });
 
 // src/lib/mcp/index.ts
-var projectRef = "ppernxjnicippytjuxpz";
+var projectRef = "lqkxxlvhcynxjuydkjha";
 var mcp_default = defineMcp({
   name: "agever-s-digital-codes",
   title: "Agever's Digital Codes",
