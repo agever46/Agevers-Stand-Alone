@@ -99,7 +99,7 @@ function renderTicketEmail(payload: TicketNotificationPayload): { subject: strin
       <table width="560" cellpadding="0" cellspacing="0" style="background:#1e1e2e;border-radius:12px;overflow:hidden;">
         <!-- Header -->
         <tr><td style="padding:32px 40px 16px;text-align:center;">
-          <img src="https://ppernxjnicippytjuxpz.supabase.co/storage/v1/object/public/email-assets/logo.png" alt="Agevers" height="40" style="background:#1e1e2e;border-radius:8px;padding:12px;"/>
+          <img src="https://lqkxxlvhcynxjuydkjha.supabase.co/storage/v1/object/public/email-assets/logo.png" alt="Agevers" height="40" style="background:#1e1e2e;border-radius:8px;padding:12px;"/>
         </td></tr>
         <!-- Status Badge -->
         <tr><td style="padding:0 40px 8px;text-align:center;">
@@ -116,7 +116,7 @@ function renderTicketEmail(payload: TicketNotificationPayload): { subject: strin
         </td></tr>
         <!-- CTA -->
         <tr><td style="padding:0 40px 32px;text-align:center;">
-          <a href="https://agevers-gamecodes.lovable.app/account" style="display:inline-block;background:#7c3aed;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:12px 32px;border-radius:8px;font-family:'Orbitron',monospace,sans-serif;letter-spacing:1px;">VIEW MY TICKETS</a>
+          <a href="https://agevers.com/account" style="display:inline-block;background:#7c3aed;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:12px 32px;border-radius:8px;font-family:'Orbitron',monospace,sans-serif;letter-spacing:1px;">VIEW MY TICKETS</a>
         </td></tr>
         <!-- Footer -->
         <tr><td style="padding:20px 40px;border-top:1px solid #2a2a3e;text-align:center;">

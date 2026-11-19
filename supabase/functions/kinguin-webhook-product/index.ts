@@ -112,9 +112,9 @@ Deno.serve(async (req) => {
     const WEBHOOK_SECRET = Deno.env.get('KINGUIN_WEBHOOK_SECRET');
     const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
-    // Required secret check — Kinguin embeds the token in the URL. If the
-    // secret is not configured, refuse all requests rather than silently
-    // accepting unauthenticated webhook payloads.
+    // Required secret check — Kinguin sends it in the X-Event-Secret header
+    // (see their webhook docs). If the secret is not configured, refuse all
+    // requests rather than silently accepting unauthenticated payloads.
     if (!WEBHOOK_SECRET) {
       console.error('KINGUIN_WEBHOOK_SECRET not configured — refusing webhook');
       return new Response(JSON.stringify({ error: 'webhook not configured' }), {
@@ -124,7 +124,10 @@ Deno.serve(async (req) => {
     }
     {
       const url = new URL(req.url);
-      const provided = url.searchParams.get('secret') || req.headers.get('x-webhook-secret');
+      const provided =
+        req.headers.get('x-event-secret') ||
+        url.searchParams.get('secret') ||
+        req.headers.get('x-webhook-secret');
       if (provided !== WEBHOOK_SECRET) {
         return new Response(null, { status: 401, headers: corsHeaders });
       }
@@ -133,22 +136,43 @@ Deno.serve(async (req) => {
     const payload = await req.json().catch(() => ({} as any));
     console.log('Kinguin product webhook payload:', JSON.stringify(payload));
 
-    // Kinguin sends { productId } or { kinguinId } in the payload depending on event.
-    const productId =
-      payload?.productId ?? payload?.kinguinId ?? payload?.id ?? payload?.product?.productId;
+    const extractProductId = (item: any) =>
+      item?.productId ?? item?.kinguinId ?? item?.id ?? item?.product?.productId;
 
-    if (!productId) {
+    // product.update sends a single object; product.update.bulk sends an array
+    // of the same shape, possibly with several elements for the same product —
+    // dedupe and keep only the newest (by updatedAt) per product.
+    let items: any[] = [];
+    if (Array.isArray(payload)) {
+      const byProduct = new Map<string, any>();
+      for (const item of payload) {
+        const pid = extractProductId(item);
+        if (!pid) continue;
+        const key = String(pid);
+        const existing = byProduct.get(key);
+        if (!existing || new Date(item?.updatedAt ?? 0) > new Date(existing?.updatedAt ?? 0)) {
+          byProduct.set(key, item);
+        }
+      }
+      items = Array.from(byProduct.values());
+    } else {
+      const pid = extractProductId(payload);
+      if (pid) items = [payload];
+    }
+
+    if (items.length === 0) {
       return new Response(null, { status: 204, headers: corsHeaders });
     }
 
     // Ack Kinguin immediately and do all work in the background so upstream
     // fetches / DB writes never make the worker time out (502/520).
     const bgTask = (async () => {
-      try {
-        // Pass payload to background task to check for data
-        await processProductUpdate(supabase, KINGUIN_API_KEY!, String(productId), payload);
-      } catch (err) {
-        console.error('background processProductUpdate failed:', err);
+      for (const item of items) {
+        try {
+          await processProductUpdate(supabase, KINGUIN_API_KEY!, String(extractProductId(item)), item);
+        } catch (err) {
+          console.error('background processProductUpdate failed:', err);
+        }
       }
     })();
     // @ts-ignore EdgeRuntime is provided by Supabase edge runtime

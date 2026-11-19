@@ -24,7 +24,7 @@ interface ReminderProps {
   hoursLeft: number // 48 for 24h reminder, 24 for 48h reminder
 }
 
-const LOGO_URL = 'https://ppernxjnicippytjuxpz.supabase.co/storage/v1/object/public/email-assets/logo.png'
+const LOGO_URL = 'https://lqkxxlvhcynxjuydkjha.supabase.co/storage/v1/object/public/email-assets/logo.png'
 
 const EmailVerificationReminder = ({
   siteName = 'Agevers',

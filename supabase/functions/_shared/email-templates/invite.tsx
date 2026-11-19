@@ -20,7 +20,7 @@ interface InviteEmailProps {
   confirmationUrl: string
 }
 
-const LOGO_URL = 'https://ppernxjnicippytjuxpz.supabase.co/storage/v1/object/public/email-assets/logo.png'
+const LOGO_URL = 'https://lqkxxlvhcynxjuydkjha.supabase.co/storage/v1/object/public/email-assets/logo.png'
 
 export const InviteEmail = ({
   siteName,

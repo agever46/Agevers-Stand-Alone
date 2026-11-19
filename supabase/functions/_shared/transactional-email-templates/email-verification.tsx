@@ -24,11 +24,11 @@ interface EmailVerificationProps {
   otpCode?: string
 }
 
-const LOGO_URL = 'https://ppernxjnicippytjuxpz.supabase.co/storage/v1/object/public/email-assets/logo.png'
+const LOGO_URL = 'https://lqkxxlvhcynxjuydkjha.supabase.co/storage/v1/object/public/email-assets/logo.png'
 
 const EmailVerification = ({
   siteName = 'Agevers',
-  siteUrl = 'https://agevers-gamecodes.lovable.app',
+  siteUrl = 'https://agevers.com',
   recipient = 'user@example.com',
   verificationUrl = '#',
   otpCode,
@@ -92,9 +92,9 @@ export const template: TemplateEntry = {
   displayName: 'Email Verification',
   previewData: {
     siteName: 'Agevers',
-    siteUrl: 'https://agevers-gamecodes.lovable.app',
+    siteUrl: 'https://agevers.com',
     recipient: 'user@example.com',
-    verificationUrl: 'https://agevers-gamecodes.lovable.app/verify-email?token=abc123',
+    verificationUrl: 'https://agevers.com/verify-email?token=abc123',
   },
 }
 

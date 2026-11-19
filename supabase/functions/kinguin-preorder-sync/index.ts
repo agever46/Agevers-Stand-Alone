@@ -9,7 +9,7 @@ const corsHeaders = {
 const KINGUIN_API = 'https://gateway.kinguin.net/esa/api';
 const PLACEHOLDER_ORDER_ID = '00000000-0000-0000-0000-000000000000';
 const FROM_ADDRESS = 'Agevers <noreply@updates.agevers.com>';
-const ACCOUNT_URL = 'https://agevers-gamecodes.lovable.app/account';
+const ACCOUNT_URL = 'https://agevers.com/account';
 
 const splitCodes = (value: string | null | undefined) =>
   (value || '')

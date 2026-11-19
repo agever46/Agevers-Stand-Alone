@@ -82,7 +82,7 @@ export const template = {
     platform: 'Steam',
     quantity: 1,
     price: '€39.99',
-    orderLink: 'https://agevers-gamecodes.lovable.app/order/DEMO123',
+    orderLink: 'https://agevers.com/order/DEMO123',
     orderId: 'DEMO-12345',
   },
 } satisfies TemplateEntry
