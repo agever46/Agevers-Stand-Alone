@@ -64,6 +64,9 @@ const ResetPassword = () => {
 
   useEffect(() => {
     let active = true;
+    // Tracks whether a recovery session has already been confirmed by either
+    // signal below, so neither one can clobber success with a stale error.
+    const recoveredRef = { current: false };
     const hashParams = getHashParams();
     const errorDescription = hashParams.get("error_description")?.replace(/\+/g, " ");
     const errorCode = hashParams.get("error_code");
@@ -81,37 +84,50 @@ const ResetPassword = () => {
       return;
     }
 
+    const markRecovered = () => {
+      recoveredRef.current = true;
+      setLinkError(null);
+      setHasRecoverySession(true);
+      setAuthReady(true);
+    };
+
     const timeout = window.setTimeout(() => {
-      if (!active) return;
+      if (!active || recoveredRef.current) return;
       setAuthReady(true);
       setLinkError("We could not verify this password reset link. Please request a new reset email from your own account.");
     }, 5000);
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (!active) return;
-      if (event === "PASSWORD_RECOVERY") {
+      if (event === "PASSWORD_RECOVERY" && session) {
         window.clearTimeout(timeout);
-        setHasRecoverySession(Boolean(session));
-        setAuthReady(true);
+        markRecovered();
       }
     });
 
     withTimeout(supabase.auth.getSession())
       .then(({ data: { session } }) => {
-        if (!active) return;
-        window.clearTimeout(timeout);
+        if (!active || recoveredRef.current) return;
         if (getHashParams().get("type") === "recovery" && session) {
-          setHasRecoverySession(true);
-        } else {
+          window.clearTimeout(timeout);
+          markRecovered();
+        } else if (!hasRecoveryMarker) {
+          // No recovery token in the URL at all — nothing worth waiting for.
+          window.clearTimeout(timeout);
           setLinkError("Open the password reset link from the email, or request a new reset link.");
+          setAuthReady(true);
         }
-        setAuthReady(true);
+        // Otherwise a recovery marker is present but the session from the
+        // hash hasn't landed yet — let the PASSWORD_RECOVERY event (or the
+        // timeout above) decide, instead of racing ahead with an error.
       })
       .catch(() => {
-        if (!active) return;
-        window.clearTimeout(timeout);
-        setLinkError("We could not verify this password reset link. Please request a new reset email.");
-        setAuthReady(true);
+        if (!active || recoveredRef.current) return;
+        if (!hasRecoveryMarker) {
+          window.clearTimeout(timeout);
+          setLinkError("We could not verify this password reset link. Please request a new reset email.");
+          setAuthReady(true);
+        }
       });
 
     return () => {
