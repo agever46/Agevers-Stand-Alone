@@ -11,8 +11,8 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY not configured");
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) throw new Error("GEMINI_API_KEY not configured");
 
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
     const SUPABASE_ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY")!;
@@ -28,6 +28,8 @@ Deno.serve(async (req) => {
       global: { headers: { Authorization: authHeader } },
     });
 
+    const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+
     let userId: string;
     const { data: claimsData, error: claimsError } = await anonClient.auth.getClaims(token);
     if (claimsError || !claimsData?.claims?.sub) {
@@ -41,8 +43,6 @@ Deno.serve(async (req) => {
     } else {
       userId = claimsData.claims.sub as string;
     }
-
-    const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
     const { data: roleRows } = await supabase
       .from("user_roles").select("role").eq("user_id", userId).in("role", ["admin", "super_admin"]);
@@ -112,12 +112,12 @@ Guidelines:
         const timeout = setTimeout(() => controller.abort(), 45000);
 
         try {
-          const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+          const aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
             method: "POST",
-            headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+            headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
             signal: controller.signal,
             body: JSON.stringify({
-              model: "google/gemini-2.5-flash",
+              model: "gemini-3.5-flash",
               messages: [
                 { role: "system", content: systemPrompt },
                 { role: "user", content: userMessage },
@@ -288,12 +288,12 @@ Guidelines:
           const timeout = setTimeout(() => controller.abort(), 20000);
 
           try {
-            const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+            const aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
               method: "POST",
-              headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+              headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
               signal: controller.signal,
               body: JSON.stringify({
-                model: "google/gemini-2.5-flash-lite",
+                model: "gemini-3.5-flash-lite",
                 messages: [
                   {
                     role: "system",
@@ -419,11 +419,11 @@ RULES: English only. No marketplace names. Unique opening/phrasing/focus for eve
       for (let attempt = 0; attempt < 3; attempt++) {
         if (attempt > 0) await new Promise(r => setTimeout(r, Math.pow(2, attempt) * 3000));
         try {
-          const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+          const aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
             method: "POST",
-            headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+            headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
             body: JSON.stringify({
-              model: "google/gemini-2.5-flash-lite",
+              model: "gemini-3.5-flash-lite",
               messages: [
                 {
                   role: "system",

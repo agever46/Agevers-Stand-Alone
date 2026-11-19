@@ -758,7 +758,7 @@ serve(async (req) => {
       const imported: string[] = [];
       const errors: string[] = [];
 
-      const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+      const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
 
       for (const p of products) {
         try {
@@ -769,13 +769,13 @@ serve(async (req) => {
 
           // AI-paraphrase the title to look professional and unique
           let cleanTitle = p.title;
-          if (LOVABLE_API_KEY) {
+          if (GEMINI_API_KEY) {
             try {
-              const titleRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+              const titleRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
                 method: "POST",
-                headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+                headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
                 body: JSON.stringify({
-                  model: "google/gemini-2.5-flash-lite",
+                  model: "gemini-3.5-flash-lite",
                   messages: [
                     {
                       role: "system",
@@ -811,13 +811,13 @@ Rules:
 
           // AI-format the description into clean bullet points
           let formattedDescription = p.description || null;
-          if (formattedDescription && LOVABLE_API_KEY) {
+          if (formattedDescription && GEMINI_API_KEY) {
             try {
-              const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+              const aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
                 method: "POST",
-                headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+                headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
                 body: JSON.stringify({
-                  model: "google/gemini-2.5-flash-lite",
+                  model: "gemini-3.5-flash-lite",
                   messages: [
                     {
                       role: "system",
@@ -932,15 +932,15 @@ Rules:
           if (allowedProductId && p.variations && Array.isArray(p.variations) && p.variations.length > 0) {
             // Clean variation names with deterministic cleanup first, then AI refinement
             let cleanedVariations = sanitizeVariationList(p.variations);
-            if (LOVABLE_API_KEY && p.variations.length > 0) {
+            if (GEMINI_API_KEY && p.variations.length > 0) {
               try {
                 const rawNames = cleanedVariations.map((v: any) => v.variation_name || '').filter(Boolean);
                 if (rawNames.length > 0) {
-                  const cleanRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+                  const cleanRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
                     method: "POST",
-                    headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+                    headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
                     body: JSON.stringify({
-                      model: "google/gemini-2.5-flash-lite",
+                      model: "gemini-3.5-flash-lite",
                       messages: [
                         {
                           role: "system",

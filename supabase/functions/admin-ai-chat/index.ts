@@ -1769,8 +1769,8 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY not configured");
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) throw new Error("GEMINI_API_KEY not configured");
 
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -2046,15 +2046,15 @@ Activation guides for Steam, PlayStation, Xbox, Nintendo, Epic, GOG. Coins earne
           for (let i = 0; i < maxIterations; i++) {
             send("status", { step: i === 0 ? "🧠 חושב..." : "🧠 ממשיך לעבד..." });
 
-            const models = ["google/gemini-2.5-flash", "google/gemini-2.5-flash-lite"];
+            const models = ["gemini-3.5-flash", "gemini-3.5-flash-lite"];
             let aiRes: Response | null = null;
             for (let modelIdx = 0; modelIdx < models.length; modelIdx++) {
               const model = models[modelIdx];
               for (let retry = 0; retry < 4; retry++) {
-                aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+                aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
                   method: "POST",
                   headers: {
-                    Authorization: `Bearer ${LOVABLE_API_KEY}`,
+                    Authorization: `Bearer ${GEMINI_API_KEY}`,
                     "Content-Type": "application/json",
                   },
                   body: JSON.stringify({

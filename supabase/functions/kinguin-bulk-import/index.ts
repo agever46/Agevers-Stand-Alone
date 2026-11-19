@@ -449,7 +449,7 @@ Deno.serve(async (req) => {
 
   try {
     const KINGUIN_API_KEY = Deno.env.get("KINGUIN_API_KEY");
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
     if (!KINGUIN_API_KEY) throw new Error("KINGUIN_API_KEY not configured");
 
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -647,7 +647,7 @@ Deno.serve(async (req) => {
 
       // Paraphrase description if available, or use original
       let description: string | null = product.description || null;
-      if (!skipParaphrase && product.description && LOVABLE_API_KEY) {
+      if (!skipParaphrase && product.description && GEMINI_API_KEY) {
         await new Promise((r) => setTimeout(r, 2000));
         
         let aiSuccess = false;
@@ -656,11 +656,11 @@ Deno.serve(async (req) => {
             await new Promise((r) => setTimeout(r, Math.pow(2, aiAttempt + 1) * 1500));
           }
           try {
-            const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+            const aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
               method: "POST",
-              headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+              headers: { Authorization: `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" },
               body: JSON.stringify({
-                model: "google/gemini-2.5-flash-lite",
+                model: "gemini-3.5-flash-lite",
                 messages: [
                   { role: "system", content: `You are a professional game store copywriter. Rewrite the following product description in your own words. Rules: Keep the same information and key features, use different sentence structures and vocabulary, make it sound professional and appealing, do NOT mention "Kinguin" or any marketplace name, keep it concise (max 3-4 paragraphs), write in English, output the description directly without prefixes. CRITICAL: If this is a bundle/edition/pack that includes specific items, DLCs, expansions, skins, maps, or any listed contents — you MUST preserve and list ALL included items exactly. Never omit, summarize, or generalize the bundle contents.` },
                   { role: "user", content: `Product: "${name}"\n\nOriginal:\n${product.description}` },

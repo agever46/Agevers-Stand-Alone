@@ -101,13 +101,13 @@ Deno.serve(async (req) => {
   });
 
   // ── AI ──
-  add("lovable_ai", "Lovable AI Gateway", "AI", async () => {
-    const key = Deno.env.get("LOVABLE_API_KEY");
+  add("gemini_ai", "Google Gemini", "AI", async () => {
+    const key = Deno.env.get("GEMINI_API_KEY");
     if (!key) return { ok: false, detail: "Key missing" };
-    const r = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const r = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ model: "google/gemini-2.5-flash-lite", messages: [{ role: "user", content: "ping" }], max_tokens: 1 }),
+      body: JSON.stringify({ model: "gemini-3.5-flash-lite", messages: [{ role: "user", content: "ping" }], max_tokens: 1 }),
     });
     return { ok: r.ok, detail: r.ok ? "OK" : `HTTP ${r.status}` };
   });
@@ -191,7 +191,7 @@ Deno.serve(async (req) => {
     return { ok: r.ok && has, detail: has ? `Resolved (${j.Answer[0]?.data})` : `HTTP ${r.status}` };
   });
 
-  add("supabase", "Lovable Cloud", "Infra", async () => {
+  add("supabase", "Supabase", "Infra", async () => {
     const url = Deno.env.get("SUPABASE_URL");
     if (!url) return { ok: false, detail: "URL missing" };
     const r = await fetch(`${url}/auth/v1/health`, { headers: { apikey: Deno.env.get("SUPABASE_ANON_KEY") || "" } });

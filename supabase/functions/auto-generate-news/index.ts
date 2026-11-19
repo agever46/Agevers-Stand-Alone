@@ -17,11 +17,11 @@ async function generateAndUploadImage(
   slug: string,
 ): Promise<string | null> {
   try {
-    const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const res = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash-image-preview",
+        model: "gemini-2.5-flash-image",
         messages: [{ role: "user", content: prompt }],
         modalities: ["image", "text"],
       }),
@@ -118,8 +118,8 @@ Deno.serve(async (req) => {
   if (authFail) return authFail;
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY not configured");
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) throw new Error("GEMINI_API_KEY not configured");
 
     const sb = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -163,14 +163,14 @@ Deno.serve(async (req) => {
       ? `\n\nReference URLs (cite naturally in prose, do NOT list as raw links):\n${citations.slice(0, 5).join("\n")}`
       : "";
 
-    const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const aiRes = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        Authorization: `Bearer ${GEMINI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: "gemini-3.5-flash",
         messages: [
           {
             role: "system",
@@ -242,7 +242,7 @@ Deno.serve(async (req) => {
     // 5) Insert
     // Generate hero image
     const imagePrompt = `Photorealistic editorial gaming news hero image for an article titled "${article.title}". Cinematic lighting, vibrant colors, modern gaming aesthetic, no text or logos, 16:9 composition.`;
-    const heroImage = await generateAndUploadImage(sb, LOVABLE_API_KEY, imagePrompt, slug);
+    const heroImage = await generateAndUploadImage(sb, GEMINI_API_KEY, imagePrompt, slug);
 
     const { data: inserted, error: insErr } = await sb
       .from("news_articles")
