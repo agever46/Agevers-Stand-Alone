@@ -1889,7 +1889,7 @@ const ProductDetail = () => {
           }
           if (galleryImages.length === 0) return null;
           return (
-            <div className="flex gap-3 mt-6 overflow-x-auto pb-2 scrollbar-thin">
+            <div className="flex gap-3 mt-6 overflow-x-auto pb-2 scrollbar-thin w-full max-w-full min-w-0">
               {galleryImages.map((url, i) => (
                 <button
                   key={i}

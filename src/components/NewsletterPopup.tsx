@@ -29,7 +29,14 @@ const NewsletterPopup = () => {
         setEmail(user.email || "");
       }
       if (!cancelled) {
-        timer = setTimeout(() => setVisible(true), 5000);
+        const showWhenConsentDone = () => {
+          if (cancelled) return;
+          let decided = true;
+          try { decided = !!localStorage.getItem("agevers_cookie_consent"); } catch { /* ignore */ }
+          if (decided) setVisible(true);
+          else timer = setTimeout(showWhenConsentDone, 2000);
+        };
+        timer = setTimeout(showWhenConsentDone, 5000);
       }
     };
 

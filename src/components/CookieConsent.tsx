@@ -42,7 +42,7 @@ const CookieConsent = () => {
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6"
         >
-          <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl p-5 md:p-6">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl p-4 md:p-6 max-h-[60vh] overflow-y-auto">
             <div className="flex items-start gap-4">
               <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
                 <Cookie className="h-5 w-5 text-primary" />
@@ -62,7 +62,7 @@ const CookieConsent = () => {
                   </button>
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
                   You can choose to accept all cookies, only essential ones, or decline non-essential cookies.{" "}
                   <a href="/privacy-policy" className="text-primary hover:underline">
@@ -70,10 +70,10 @@ const CookieConsent = () => {
                   </a>
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-2 pt-1">
+                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 pt-1">
                   <Button
                     onClick={() => handleChoice("all")}
-                    className="w-full sm:w-auto"
+                    className="col-span-2 w-full sm:w-auto"
                     size="sm"
                   >
                     Accept All
