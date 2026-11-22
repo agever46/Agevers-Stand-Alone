@@ -1734,7 +1734,7 @@ const ProductDetail = () => {
               </div>
             )}
 
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
               {!!lowestPrice && !canAddItem(lowestPrice) ? (
                 <Tooltip open={lockedTipOpen} onOpenChange={setLockedTipOpen}>
                   <TooltipTrigger asChild>
@@ -1746,7 +1746,7 @@ const ProductDetail = () => {
                       }}
                     >
                       <Button
-                        className="h-10 px-6 font-display tracking-wider text-sm gap-2 opacity-50 cursor-not-allowed"
+                        className="h-10 px-4 sm:px-6 font-display tracking-wider text-sm gap-2 opacity-50 cursor-not-allowed"
                         disabled
                       >
                         <Clock className="h-4 w-4" />
@@ -1761,7 +1761,7 @@ const ProductDetail = () => {
               ) : (
               <>
               <Button
-                className="h-10 px-6 font-display tracking-wider text-sm gap-2"
+                className="h-10 px-4 sm:px-6 font-display tracking-wider text-sm gap-2"
                 disabled={!lowestPrice}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -1784,7 +1784,7 @@ const ProductDetail = () => {
               </Button>
               <Button
                 variant="outline"
-                className="h-10 px-6 font-display tracking-wider text-sm gap-2 border-border text-muted-foreground hover:text-primary"
+                className="h-10 px-4 sm:px-6 font-display tracking-wider text-sm gap-2 border-border text-muted-foreground hover:text-primary"
                 disabled={!lowestPrice}
                 onClick={(e) => {
                   e.stopPropagation();
