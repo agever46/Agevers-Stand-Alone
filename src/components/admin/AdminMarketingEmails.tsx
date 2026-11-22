@@ -43,6 +43,7 @@ const AdminMarketingEmails = () => {
   const [html, setHtml] = useState("");
   const [mode, setMode] = useState<Mode>("all_subscribers");
   const [manualEmails, setManualEmails] = useState("");
+  const [histPreview, setHistPreview] = useState<any>(null);
   const [recipientCount, setRecipientCount] = useState<number | null>(null);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [sending, setSending] = useState(false);
@@ -408,6 +409,9 @@ const AdminMarketingEmails = () => {
                   <Badge variant={c.status === "sent" ? "default" : c.status === "failed" ? "destructive" : "secondary"}>
                     {c.status}
                   </Badge>
+                  <Button size="sm" variant="outline" onClick={() => setHistPreview(c)}>
+                    <Eye className="h-4 w-4 mr-1" /> Preview
+                  </Button>
                   {c.status === "draft" && (
                     <Button size="sm" disabled={sending} onClick={() => sendDraft(c.id, c.subject)}>
                       <Send className="h-4 w-4 mr-1" /> Send
@@ -424,6 +428,17 @@ const AdminMarketingEmails = () => {
           ))}
         </TabsContent>
       </Tabs>
+
+      <Dialog open={!!histPreview} onOpenChange={(o) => !o && setHistPreview(null)}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-auto">
+          <DialogHeader><DialogTitle>{histPreview?.subject}</DialogTitle></DialogHeader>
+          <div className="text-xs text-muted-foreground">
+            Recipients: {histPreview?.recipient_filter?.mode}
+            {histPreview?.recipient_filter?.emails ? ` (${histPreview.recipient_filter.emails.length})` : ""}
+          </div>
+          <div className="bg-white text-black rounded p-4" dangerouslySetInnerHTML={{ __html: histPreview?.html_content ?? "" }} />
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={previewOpen} onOpenChange={setPreviewOpen}>
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-auto">
