@@ -167,6 +167,23 @@ const AdminMarketingEmails = () => {
     }
   };
 
+  const sendDraft = async (id: string, subj: string) => {
+    if (!window.confirm(`Send draft "${subj}" now?`)) return;
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-marketing-campaign", {
+        body: { campaignId: id },
+      });
+      if (error) throw error;
+      toast.success(`Campaign sent! ${data.sent} delivered, ${data.failed} failed.`);
+      fetchCampaigns();
+    } catch (e: any) {
+      toast.error(`Failed: ${e?.message || e}`);
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <div className="max-w-6xl mx-auto p-4 space-y-6">
       <div className="flex items-center gap-3">
@@ -391,6 +408,11 @@ const AdminMarketingEmails = () => {
                   <Badge variant={c.status === "sent" ? "default" : c.status === "failed" ? "destructive" : "secondary"}>
                     {c.status}
                   </Badge>
+                  {c.status === "draft" && (
+                    <Button size="sm" disabled={sending} onClick={() => sendDraft(c.id, c.subject)}>
+                      <Send className="h-4 w-4 mr-1" /> Send
+                    </Button>
+                  )}
                 </div>
               </div>
               <div className="flex gap-4 mt-3 text-sm">
