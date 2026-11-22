@@ -87,7 +87,7 @@ const AdminBusinessPortal = () => {
       </div>
 
       <Tabs defaultValue="wholesale">
-        <TabsList>
+        <TabsList className="h-auto flex-wrap justify-start">
           <TabsTrigger value="wholesale" className="gap-2"><Building2 className="w-4 h-4" />Wholesale ({wholesale.length})</TabsTrigger>
           <TabsTrigger value="affiliate" className="gap-2"><Users className="w-4 h-4" />Affiliates ({affiliates.length})</TabsTrigger>
           <TabsTrigger value="partnership" className="gap-2"><Handshake className="w-4 h-4" />Partnerships ({partnerships.length})</TabsTrigger>
