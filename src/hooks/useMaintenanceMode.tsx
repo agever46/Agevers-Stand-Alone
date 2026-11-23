@@ -8,9 +8,17 @@ export const useMaintenanceMode = () => {
   useEffect(() => {
     let active = true;
     const load = async () => {
-      const { data } = await (supabase.rpc("get_public_site_flags" as any) as any);
-      const row = Array.isArray(data) ? data[0] : data;
+      const res = await (supabase.rpc("get_public_site_flags" as any) as any);
+      const { data } = res;
       if (!active) return;
+      // 402 = Supabase has restricted the project (quota). The whole backend is
+      // unavailable, so show the maintenance screen instead of a broken shop.
+      if (res.status === 402 || /restricted due to/i.test(res.error?.message || "")) {
+        setMaintenanceUntil(null);
+        setMaintenance(true);
+        return;
+      }
+      const row = Array.isArray(data) ? data[0] : data;
       const until: string | null = row?.maintenance_until ?? null;
       const expired = !!until && new Date(until).getTime() <= Date.now();
       setMaintenanceUntil(expired ? null : until);
