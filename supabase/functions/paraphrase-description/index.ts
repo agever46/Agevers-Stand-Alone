@@ -44,7 +44,10 @@ Deno.serve(async (req) => {
       );
     }
 
-    const maxRetries = 5;
+    // Gemini sometimes answers 503 "high demand" for a single model; retry on
+    // 429/5xx and rotate to a fallback model on each retry.
+    const models = ["gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3-flash-preview"];
+    const maxRetries = 4;
     let lastError = "";
     let response: Response | null = null;
 
@@ -68,7 +71,7 @@ Deno.serve(async (req) => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              model: "gemini-3.1-flash-lite",
+              model: models[Math.min(attempt, models.length - 1)],
               messages: [
                 {
                   role: "system",
@@ -103,8 +106,8 @@ RULES: English only. No marketplace names. Unique opening/phrasing/focus for eve
           throw new Error("AI credits exhausted. Please add credits in Settings → Workspace → Usage.");
         }
 
-        // Only retry on 429 (rate limit)
-        if (response.status !== 429) {
+        // Retry on 429 (rate limit) and 5xx (model overloaded); give up on other 4xx
+        if (response.status !== 429 && response.status < 500) {
           break;
         }
       } catch (fetchError) {
